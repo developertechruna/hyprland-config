@@ -1,0 +1,87 @@
+# =====================================================================
+# Lista de Paquetes para Entorno de Programador con Hyprland en Wayland
+# =====================================================================
+# Sistema Operativo: Arch Linux
+# 
+# Para instalar los paquetes de los repositorios oficiales de pacman:
+# sudo pacman -S - < paquetes_pacman.txt
+#
+# Para instalar los paquetes de AUR (requiere un helper como yay o paru):
+# yay -S - < paquetes_aur.txt
+#
+# A continuación se lista todo consolidated por categorías:
+
+# ---------------------------------------------------------------------
+# 1. COMPOSITOR Y ENTORNO BASE (pacman)
+# ---------------------------------------------------------------------
+hyprland                      # Compositor principal de ventanas
+waybar                        # Barra de estado superior
+xfce4-terminal                # Emulador de terminal ligero de XFCE (Fuente 9.0)
+mako                          # Demonio de notificaciones ligero
+pipewire                      # Servidor de audio moderno
+pipewire-alsa                 # Compatibilidad ALSA para PipeWire
+pipewire-pulse                # Reemplazo de PulseAudio
+wireplumber                   # Gestor de sesiones de audio
+polkit-gnome                  # Agente de autenticación gráfica para contraseñas root
+xdg-desktop-portal-hyprland   # Compartición de pantalla y portales nativos de Hyprland
+qt5-wayland                   # Soporte nativo de Wayland para aplicaciones Qt5
+qt6-wayland                   # Soporte nativo de Wayland para aplicaciones Qt6
+
+# ---------------------------------------------------------------------
+# 2. UTILIDADES DE SISTEMA Y CONTROL (pacman)
+# ---------------------------------------------------------------------
+brightnessctl                 # Control de brillo de pantalla vía teclado
+pamixer                       # Control de volumen de audio por terminal
+playerctl                     # Utilidad para controlar reproductores de medios (Requerido para Waybar)
+grim                          # Herramienta para tomar capturas de pantalla
+slurp                         # Seleccionar geometría de pantalla (para grim)
+wl-clipboard                  # Gestor del portapapeles nativo de Wayland
+swappy                        # Editor gráfico rápido de capturas de pantalla
+btop                          # Monitor de recursos elegante para terminal
+network-manager-applet        # Icono de red (nm-applet) en la bandeja de sistema
+pavucontrol                   # Interfaz gráfica de control de volumen
+blueman                       # Gestor y applet de Bluetooth (blueman-applet)
+ttf-jetbrains-mono            # Fuente JetBrains Mono (Requerimiento)
+otf-fira-code                 # Fuente Fira Code (Alternativa)
+ttf-font-awesome              # Iconos para Waybar
+
+# ---------------------------------------------------------------------
+# 3. LANZADORES Y ESCRITORIO (AUR / pacman)
+# ---------------------------------------------------------------------
+rofi-wayland                  # Fork de Rofi con soporte nativo para Wayland (Reemplazo de rofi)
+nwg-drawer                    # Cajón de aplicaciones visual por categorías (Instalar vía yay/AUR)
+wlogout                       # Menú gráfico de apagado y sesión (pacman)
+swww                          # Fondo de pantalla dinámico rápido para Wayland (Instalar vía yay)
+cliphist                      # Gestor de historial de portapapeles (Compatible con imágenes)
+
+# ---------------------------------------------------------------------
+# 4. HERRAMIENTAS DE DESARROLLO (pacman / AUR)
+# ---------------------------------------------------------------------
+eclipse-java                  # Eclipse IDE para desarrollo en Java (pacman)
+git                           # Control de versiones
+lazygit                       # Interfaz git interactiva para terminal
+yazi                          # Explorador de archivos en terminal escrito en Rust
+neovim                        # Editor de consola rápido
+
+# Nota: Para Antigravity IDE, instálalo desde tu gestor de paquetes local o AUR según sea provisto.
+
+# =====================================================================
+# INSTRUCCIONES RÁPIDAS DE INSTALACIÓN
+# =====================================================================
+#
+# Paso 1: Instalar Yay (Helper de AUR) si no lo tienes:
+# sudo pacman -S --needed git base-devel
+# git clone https://aur.archlinux.org/yay.git
+# cd yay && makepkg -si
+#
+# Paso 2: Instalar paquetes oficiales
+# sudo pacman -S hyprland waybar xfce4-terminal mako pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy btop network-manager-applet pavucontrol blueman ttf-jetbrains-mono otf-fira-code ttf-font-awesome git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
+#
+# Paso 3: Instalar paquetes desde AUR
+# yay -S swww nwg-drawer
+#
+# Paso 4: Copiar la configuración creada al directorio home
+# cp -r config/* ~/.config/
+#
+# Paso 5: Ejecutar Hyprland
+# Hyprland
