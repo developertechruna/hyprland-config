@@ -1,0 +1,37 @@
+# Configuración de Mako (Catppuccin Mocha)
+# Ubicación original destino: ~/.config/mako/config
+
+# Tipografía y Texto
+font=SauceCodePro Nerd Font 9
+background-color=#1e1e2e
+text-color=#cdd6f4
+
+# Dimensiones y Espaciado
+width=320
+height=110
+margin=10
+padding=12
+border-size=1
+border-color=#cba6f7
+border-radius=4
+
+# Barra de progreso e iconos
+progress-color=over #313244
+max-icon-size=48
+markup=1
+
+# Tiempos de visualización y prioridades
+default-timeout=8000
+
+[urgency=low]
+border-color=#89b4fa
+default-timeout=4000
+
+[urgency=normal]
+border-color=#cba6f7
+default-timeout=8000
+
+[urgency=high]
+border-color=#f38ba8
+text-color=#f5e0dc
+default-timeout=0

@@ -1,0 +1,215 @@
+/* Estilo de Waybar en Catppuccin Mocha */
+/* Ubicación original destino: ~/.config/waybar/style.css */
+
+* {
+    border: none;
+    border-radius: 0;
+    /* Fuente SauceCodePro Nerd Font de tamaño 9 (Requerimiento) */
+    font-family: "SauceCodePro Nerd Font", "Noto Sans CJK", sans-serif;
+    font-size: 9pt;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #1e1e2e; /* Fondo Catppuccin Mocha */
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 1px solid #313244;
+}
+
+/* Estilos de botones de Espacios de Trabajo */
+#workspaces button,
+#workspaces button label {
+    font-size: 11pt; /* Tamaño optimizado para barra de 24px de alto con la nueva fuente */
+}
+
+#workspaces button {
+    padding: 0 6px;
+    margin: 2px 2px;
+    background-color: transparent;
+    color: #bac2de;
+    border-radius: 4px;
+}
+
+#workspaces button label {
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces button:hover {
+    background: rgba(137, 180, 250, 0.15);
+    color: #89b4fa;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+    background-color: rgba(203, 166, 247, 0.15); /* Resaltado de fondo en vez de borde inferior */
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8;
+    color: #11111b;
+}
+
+/* Espacios de trabajo vacíos: se muestran como un único punto minimalista */
+#workspaces button.empty {
+    min-width: 8px; /* Ajustado a 8px para caber perfectamente */
+    min-height: 8px;
+    padding: 0;
+    margin: 8px 6px; /* Centrado para altura de 24px (8 + 8 + 8 = 24) */
+    background-color: #45475a; /* Gris oscuro (Surface1) */
+    border-radius: 50%;
+    border-bottom: none;
+}
+
+#workspaces button.empty label {
+    font-size: 0px; /* Ocultar la etiqueta vacía para que no altere el tamaño */
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces button.active.empty {
+    background-color: #cba6f7; /* Lavanda activo */
+    border-bottom: none;
+}
+
+#workspaces button.empty:hover {
+    background-color: #89b4fa; /* Azul al pasar el mouse */
+    border-bottom: none;
+}
+
+/* Módulos individuales */
+#mode, #clock, #battery, #backlight, #pulseaudio, #pulseaudio.microphone, #network, #custom-vpn, #custom-media, #cpu, #memory, #window, #tray, #custom-language {
+    padding: 0 10px;
+    margin: 2px 0;
+    background-color: #181825;
+    border-radius: 4px;
+    color: #cdd6f4;
+}
+
+/* Espaciado personalizado y colores */
+#window {
+    background-color: transparent;
+    color: #cba6f7;
+    font-weight: bold;
+}
+
+#cpu {
+    color: #a6e3a1;
+}
+
+#memory {
+    color: #f9e2af;
+}
+
+#network {
+    color: #89dceb;
+}
+
+#pulseaudio {
+    color: #89b4fa;
+}
+
+#pulseaudio.microphone {
+    color: #a6e3a1; /* Green when active */
+}
+
+#pulseaudio.microphone.muted {
+    color: #f38ba8; /* Red when muted */
+}
+
+#custom-language {
+    color: #fab387;
+}
+
+#backlight {
+    color: #f5c2e7;
+}
+
+#battery {
+    color: #f38ba8;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#clock {
+    color: #cba6f7;
+    font-weight: bold;
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#custom-vpn {
+    color: #f5c2e7;
+}
+
+#custom-vpn.connected {
+    color: #a6e3a1;
+}
+
+#custom-vpn.disconnected {
+    color: #f38ba8;
+}
+
+#custom-media {
+    color: #b4befe; /* Lavender */
+}
+
+#custom-media.playing {
+    color: #a6e3a1; /* Green when playing */
+}
+
+#custom-media.paused {
+    color: #bac2de; /* Subtext when paused */
+    font-style: italic;
+}
+
+#custom-lock, #custom-reboot, #custom-power {
+    padding: 0 10px;
+    margin: 2px 0;
+    background-color: #181825;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#custom-lock {
+    color: #f9e2af; /* Amarillo de Catppuccin */
+}
+
+#custom-lock:hover {
+    background-color: #f9e2af;
+    color: #11111b;
+}
+
+#custom-reboot {
+    color: #a6e3a1; /* Verde de Catppuccin */
+}
+
+#custom-reboot:hover {
+    background-color: #a6e3a1;
+    color: #11111b;
+}
+
+#custom-power {
+    color: #f38ba8; /* Rojo de Catppuccin */
+}
+
+#custom-power:hover {
+    background-color: #f38ba8;
+    color: #11111b;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid #cba6f7;
+    border-radius: 6px;
+}
+tooltip label {
+    color: #cdd6f4;
+    font-size: 9pt;
+}

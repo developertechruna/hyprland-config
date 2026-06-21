@@ -1,0 +1,28 @@
+# Configuración de XFCE4-Terminal
+# Ubicación destino original: ~/.config/xfce4/terminal/terminalrc
+
+[Configuration]
+# Fuente SauceCodePro Nerd Font de tamaño 9 (Requerimiento)
+FontName=SauceCodePro Nerd Font 9
+
+# Esquema de Colores: Catppuccin Mocha
+ColorForeground=#cdd6f4
+ColorBackground=#1e1e2e
+ColorCursor=#f5e0dc
+ColorPalette=#45475a;#f38ba8;#a6e3a1;#f9e2af;#89b4fa;#f5c2e7;#89dceb;#bac2de;#585b70;#f38ba8;#a6e3a1;#f9e2af;#89b4fa;#f5c2e7;#89dceb;#a6adc8
+
+# Apariencia y comportamiento limpio (Ocultar menús y bordes molestos)
+MiscAlwaysShowTabs=FALSE
+MiscBell=FALSE
+MiscBordersDefault=FALSE
+MiscCursorBlinks=TRUE
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_IBEAM
+MiscDefaultGeometry=80x24
+MiscInheritGeometry=TRUE
+MiscMenubarDefault=FALSE
+MiscMouseAutohide=FALSE
+MiscMouseWheelZoom=TRUE
+MiscToolbarDefault=FALSE
+MiscTitleMode=TERMINAL_TITLE_REPLACE
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ScrollingLines=10000

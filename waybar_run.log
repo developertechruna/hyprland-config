@@ -1,0 +1,278 @@
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.501: Theme parsing error: gtk-dark.css:212:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.501: Theme parsing error: gtk-dark.css:219:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.501: Theme parsing error: gtk-dark.css:230:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.502: Theme parsing error: gtk-dark.css:237:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.502: Theme parsing error: gtk-dark.css:248:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.502: Theme parsing error: gtk-dark.css:255:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.502: Theme parsing error: gtk-dark.css:271:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.502: Theme parsing error: gtk-dark.css:281:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.502: Theme parsing error: gtk-dark.css:285:73: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.504: Theme parsing error: gtk-dark.css:1450:71: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.504: Theme parsing error: gtk-dark.css:1499:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.504: Theme parsing error: gtk-dark.css:1516:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.504: Theme parsing error: gtk-dark.css:1521:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.504: Theme parsing error: gtk-dark.css:1534:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.504: Theme parsing error: gtk-dark.css:1539:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.506: Theme parsing error: gtk-dark.css:1973:73: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.506: Theme parsing error: gtk-dark.css:1986:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.506: Theme parsing error: gtk-dark.css:1992:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.507: Theme parsing error: gtk-dark.css:2177:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.507: Theme parsing error: gtk-dark.css:2185:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.507: Theme parsing error: gtk-dark.css:2191:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.508: Theme parsing error: gtk-dark.css:2716:11: Not using units is deprecated. Assuming 'px'.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.508: Theme parsing error: gtk-dark.css:2716:11: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.508: Theme parsing error: gtk-dark.css:3318:35: '-gtk-gradient' is not a valid color name
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.509: Theme parsing error: gtk-dark.css:3653:53: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.509: Theme parsing error: gtk-dark.css:3692:53: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.509: Theme parsing error: gtk-dark.css:3696:59: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.509: Theme parsing error: gtk-dark.css:3702:53: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.509: Theme parsing error: gtk-dark.css:3702:87: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.510: Theme parsing error: gtk-dark.css:4044:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.510: Theme parsing error: gtk-dark.css:4044:19: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.511: Theme parsing error: gtk-dark.css:4468:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.511: Theme parsing error: gtk-dark.css:4834:73: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.511: Theme parsing error: gtk-dark.css:4844:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.511: Theme parsing error: gtk-dark.css:4848:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.511: Theme parsing error: gtk-dark.css:4858:54: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.511: Theme parsing error: gtk-dark.css:4944:60: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:4959:67: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:4963:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:4975:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5180:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5180:22: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5200:37: 'linear-gradient' is not a valid color name
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5212:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5212:24: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5215:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5215:30: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5218:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5218:24: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5235:14: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5235:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5242:14: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5242:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5251:16: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5251:16: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5256:16: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5256:16: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.512: Theme parsing error: gtk-dark.css:5333:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.513: Theme parsing error: gtk-dark.css:5336:16: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.513: Theme parsing error: gtk-dark.css:5336:16: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.513: Theme parsing error: gtk-dark.css:5388:14: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.513: Theme parsing error: gtk-dark.css:5388:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.513: Theme parsing error: gtk-dark.css:5391:68: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.513: Theme parsing error: gtk-dark.css:5621:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.514: Theme parsing error: gtk-dark.css:5631:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.514: Theme parsing error: gtk-dark.css:5635:73: Using one color stop with linear-gradient() is deprecated.
+[2026-06-11 23:11:43.534] [info] Using configuration file /home/johnny/.config/waybar/config
+[2026-06-11 23:11:43.537] [info] Discovered appearance 'dark'
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.538: Theme parsing error: gtk-dark.css:212:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.538: Theme parsing error: gtk-dark.css:219:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:230:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:237:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:248:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:255:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:271:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:281:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.539: Theme parsing error: gtk-dark.css:285:73: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.542: Theme parsing error: gtk-dark.css:1450:71: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.542: Theme parsing error: gtk-dark.css:1499:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.542: Theme parsing error: gtk-dark.css:1516:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.542: Theme parsing error: gtk-dark.css:1521:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.542: Theme parsing error: gtk-dark.css:1534:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.542: Theme parsing error: gtk-dark.css:1539:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.543: Theme parsing error: gtk-dark.css:1973:73: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.543: Theme parsing error: gtk-dark.css:1986:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.543: Theme parsing error: gtk-dark.css:1992:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.544: Theme parsing error: gtk-dark.css:2177:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.544: Theme parsing error: gtk-dark.css:2185:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.544: Theme parsing error: gtk-dark.css:2191:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.545: Theme parsing error: gtk-dark.css:2716:11: Not using units is deprecated. Assuming 'px'.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.545: Theme parsing error: gtk-dark.css:2716:11: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.546: Theme parsing error: gtk-dark.css:3318:35: '-gtk-gradient' is not a valid color name
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:3653:53: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:3692:53: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:3696:59: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:3702:53: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:3702:87: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:4044:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.547: Theme parsing error: gtk-dark.css:4044:19: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.548: Theme parsing error: gtk-dark.css:4468:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.548: Theme parsing error: gtk-dark.css:4834:73: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.548: Theme parsing error: gtk-dark.css:4844:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.548: Theme parsing error: gtk-dark.css:4848:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:4858:54: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:4944:60: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:4959:67: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:4963:56: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:4975:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5180:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5180:22: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5200:37: 'linear-gradient' is not a valid color name
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5212:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5212:24: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5215:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5215:30: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5218:10: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5218:24: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5235:14: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5235:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5242:14: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5242:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5251:16: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5251:16: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5256:16: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.549: Theme parsing error: gtk-dark.css:5256:16: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5333:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5336:16: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5336:16: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5388:14: not a number
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5388:14: Expected a string.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5391:68: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5621:74: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5631:62: Using one color stop with linear-gradient() is deprecated.
+
+(waybar:169586): Gtk-WARNING **: 23:11:43.550: Theme parsing error: gtk-dark.css:5635:73: Using one color stop with linear-gradient() is deprecated.
+[2026-06-11 23:11:43.568] [info] Using CSS file /home/johnny/.config/waybar/style.css
+[2026-06-11 23:11:43.574] [info] Hyprland IPC starting
+[2026-06-11 23:11:43.574] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-06-11 23:11:43.660] [info] Loading persistent workspaces from Hyprland workspace rules
+
+** (waybar:169586): WARNING **: 23:11:43.815: Status Notifier Item with bus name ':1.10' and object path '/org/ayatana/NotificationItem/nm_applet' is already registered
+Full
+Full
+[2026-06-11 23:11:44.189] [info] Bar configured (width: 1366, height: 24) for output: eDP-1
+[2026-06-11 23:11:44.190] [info] Bar configured (width: 1920, height: 24) for output: HDMI-A-1
+
+** (waybar:169586): WARNING **: 23:11:45.143: Status Notifier Item with bus name ':1.10' and object path '/org/ayatana/NotificationItem/nm_applet' is already registered

@@ -1,0 +1,142 @@
+// Configuración de Waybar
+// Ubicación original destino: ~/.config/waybar/config
+{
+    "layer": "top", // Mostrar en la capa superior
+    "position": "top", // Posición de la barra (arriba)
+    "height": 24, // Altura compacta para ahorrar pantalla
+    "spacing": 4, // Espacio entre módulos
+
+    // Módulos ordenados de izquierda a derecha
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "network", "custom/vpn", "custom/media", "custom/language", "pulseaudio", "pulseaudio#microphone", "backlight", "battery", "clock", "tray", "custom/power"],
+
+    // Configuración de los módulos individuales
+    "hyprland/workspaces": {
+        "format": "<span font_size='7pt' color='#585b70'>{name}</span> {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "󰉋",
+            "7": "󰓃",
+            "8": "󰙯",
+            "9": "󰖲",
+            "10": "",
+            "default": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "Workspace {name} (Super + {name})",
+        "format-tooltips": {
+            "default": "Workspace {name} (Super + {name})",
+            "empty": "Workspace {name} (Super + {name})"
+        }
+    },
+
+    "hyprland/window": {
+        "format": " {title} ",
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": true,
+        "interval": 2
+    },
+
+    "memory": {
+        "format": "  {used:0.1f}GB",
+        "tooltip": true,
+        "interval": 2
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  {ifname}",
+        "format-disconnected": "󰖪  Desconectado",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    },
+
+    "custom/language": {
+        "exec": "python3 ~/.config/hypr/get_layout.py",
+        "interval": 1,
+        "format": "{}",
+        "on-click": "python3 ~/.config/hypr/switch_layout.py",
+        "signal": 1
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  Silenciado",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Silenciado",
+        "on-click": "bash ~/.config/hypr/toggle_mic.sh",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "tooltip": true,
+        "tooltip-format": "Micrófono: {volume}%"
+    },
+
+    "backlight": {
+        "format": "󰃠  {percent}%",
+        "interval": 2
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+
+    "clock": {
+        "format": "   {:%d/%m/%Y %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/vpn": {
+        "format": "{}",
+        "interval": 5,
+        "return-type": "json",
+        "exec": "/home/johnny/.config/waybar/vpn.sh",
+        "on-click": "/home/johnny/.config/waybar/vpn.sh menu",
+        "signal": 8
+    },
+
+    "custom/media": {
+        "format": "{}",
+        "interval": 2,
+        "return-type": "json",
+        "exec": "/home/johnny/.config/waybar/media.sh",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "signal": 10
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip-format": "Menú de Apagado y Sesión",
+        "on-click": "wlogout",
+        "interval": "once"
+    }
+}
