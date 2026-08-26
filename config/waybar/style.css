@@ -88,6 +88,33 @@ window#waybar {
     color: #cdd6f4;
 }
 
+/* Estilos para el taskbar */
+#taskbar {
+    margin: 2px 0;
+    padding: 0 4px;
+    background-color: #181825;
+    border-radius: 4px;
+}
+
+#taskbar button {
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 4px;
+    color: #cdd6f4;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+#taskbar button:hover {
+    background-color: rgba(137, 180, 250, 0.15);
+    color: #89b4fa;
+}
+
+#taskbar button.active {
+    background-color: rgba(203, 166, 247, 0.15);
+    color: #cba6f7;
+}
+
 /* Espaciado personalizado y colores */
 #window {
     background-color: transparent;

@@ -50,6 +50,7 @@ ttf-font-awesome              # Iconos para Waybar
 # ---------------------------------------------------------------------
 rofi-wayland                  # Fork de Rofi con soporte nativo para Wayland (Reemplazo de rofi)
 nwg-drawer                    # Cajón de aplicaciones visual por categorías (Instalar vía yay/AUR)
+nwg-dock-hyprland             # Dock gráfico inferior/lateral para Hyprland (Instalar vía yay/AUR)
 wlogout                       # Menú gráfico de apagado y sesión (pacman)
 swww                          # Fondo de pantalla dinámico rápido para Wayland (Instalar vía yay)
 cliphist                      # Gestor de historial de portapapeles (Compatible con imágenes)
@@ -78,7 +79,7 @@ neovim                        # Editor de consola rápido
 # sudo pacman -S hyprland waybar xfce4-terminal mako pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy btop network-manager-applet pavucontrol blueman ttf-jetbrains-mono otf-fira-code ttf-font-awesome git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
 #
 # Paso 3: Instalar paquetes desde AUR
-# yay -S swww nwg-drawer
+# yay -S swww nwg-drawer nwg-dock-hyprland
 #
 # Paso 4: Copiar la configuración creada al directorio home
 # cp -r config/* ~/.config/
