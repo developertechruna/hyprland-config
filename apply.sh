@@ -11,6 +11,8 @@ cp -rv config/* ~/.config/
 chmod +x ~/.config/rofi/favorites.sh
 chmod +x ~/.config/rofi/confirm.sh
 chmod +x ~/.config/hypr/toggle_mic.sh
+chmod +x ~/.config/hypr/launch_docks.py
+chmod +x ~/.config/hypr/toggle_dock.py
 
 echo "Reiniciando Waybar para aplicar los cambios..."
 # Matar cualquier proceso de Waybar corriendo de forma manual o huérfana para evitar duplicados

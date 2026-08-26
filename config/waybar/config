@@ -7,31 +7,21 @@
     "spacing": 4, // Espacio entre módulos
 
     // Módulos ordenados de izquierda a derecha
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["cpu", "memory", "network", "custom/vpn", "custom/media", "custom/language", "pulseaudio", "pulseaudio#microphone", "backlight", "battery", "clock", "tray", "custom/power"],
+    "modules-left": ["wlr/taskbar", "hyprland/submap"],
+    //"modules-center": ["hyprland/window"],
+    //#"modules-right": ["cpu", "memory", "network", "custom/vpn", "custom/media", "custom/language", "pulseaudio", "pulseaudio#microphone", "backlight", "battery", "clock", "tray", "custom/power"],
+    "modules-right": ["cpu", "memory", "custom/media", "custom/language", "pulseaudio", "pulseaudio#microphone", "backlight", "battery", "clock", "tray", "custom/power"],
 
     // Configuración de los módulos individuales
-    "hyprland/workspaces": {
-        "format": "<span font_size='7pt' color='#585b70'>{name}</span> {icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "󰉋",
-            "7": "󰓃",
-            "8": "󰙯",
-            "9": "󰖲",
-            "10": "",
-            "default": ""
-        },
-        "tooltip": true,
-        "tooltip-format": "Workspace {name} (Super + {name})",
-        "format-tooltips": {
-            "default": "Workspace {name} (Super + {name})",
-            "empty": "Workspace {name} (Super + {name})"
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Adwaita",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
         }
     },
 
@@ -70,7 +60,7 @@
 
     "pulseaudio": {
         "format": "{icon}  {volume}%",
-        "format-muted": "󰝟  Silenciado",
+        "format-muted": " 󰝟 ",
         "format-icons": {
             "default": ["", "", ""]
         },
@@ -80,7 +70,7 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": " Silenciado",
+        "format-source-muted": "  ",
         "on-click": "bash ~/.config/hypr/toggle_mic.sh",
         "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
         "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
@@ -98,8 +88,8 @@
             "warning": 20,
             "critical": 10
         },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "󰂄  {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
     },
 
