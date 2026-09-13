@@ -1,0 +1,43 @@
+/* Estilos compactos GTK 4 para fuente tamaño 9 y entorno minimalista */
+
+* {
+    font-family: 'SauceCodePro Nerd Font', monospace;
+    font-size: 8pt;
+}
+
+/* Barras de cabecera compactas (headerbars) */
+headerbar {
+    min-height: 28px;
+    padding: 2px 6px;
+    margin: 0;
+}
+
+headerbar entry,
+headerbar button {
+    min-height: 22px;
+    padding: 2px 6px;
+    margin: 2px 0;
+}
+
+/* Pestañas compactas */
+tabbar tab {
+    min-height: 22px;
+    padding: 2px 8px;
+}
+
+/* Botones y campos de entrada compactos */
+button {
+    min-height: 22px;
+    padding: 2px 8px;
+}
+
+entry {
+    min-height: 22px;
+    padding: 2px 6px;
+}
+
+/* Barras de desplazamiento sutiles y delgadas */
+scrollbar slider {
+    min-width: 6px;
+    min-height: 6px;
+}

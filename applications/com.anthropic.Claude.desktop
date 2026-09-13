@@ -1,0 +1,32 @@
+[Desktop Entry]
+Name=Claude
+Comment=Desktop application for Claude.ai
+GenericName=AI Assistant
+Keywords=AI;Chat;Assistant;Claude;Code;LLM;
+Exec=claude-desktop %U
+Icon=claude-desktop
+Type=Application
+StartupNotify=true
+StartupWMClass=com.anthropic.Claude
+SingleMainWindow=true
+Categories=Utility;Development;
+MimeType=x-scheme-handler/claude;x-scheme-handler/claude-desktop;x-scheme-handler/claude-nest;
+TryExec=claude-desktop
+Actions=NewChat;NewCode;ContinueLast;NeedsInput;
+X-Claude-Generated=true
+
+[Desktop Action NewChat]
+Name=New Chat
+Exec=claude-desktop "claude://claude.ai/new?surface=chat&source=desktop_action"
+
+[Desktop Action NewCode]
+Name=New Claude Code Session
+Exec=claude-desktop "claude://code/new?source=desktop_action"
+
+[Desktop Action ContinueLast]
+Name=Continue Last Claude Code Session
+Exec=claude-desktop "claude://code/continue?session=last&source=desktop_action"
+
+[Desktop Action NeedsInput]
+Name=Sessions Waiting for You
+Exec=claude-desktop "claude://code/needs-input?source=desktop_action"

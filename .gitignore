@@ -1,0 +1,4 @@
+*.log
+.zcompdump*
+*.zwc
+.cache/

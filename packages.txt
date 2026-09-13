@@ -37,13 +37,18 @@ grim                          # Herramienta para tomar capturas de pantalla
 slurp                         # Seleccionar geometría de pantalla (para grim)
 wl-clipboard                  # Gestor del portapapeles nativo de Wayland
 swappy                        # Editor gráfico rápido de capturas de pantalla
+flameshot                     # Herramienta interactiva de capturas de pantalla
 btop                          # Monitor de recursos elegante para terminal
 network-manager-applet        # Icono de red (nm-applet) en la bandeja de sistema
 pavucontrol                   # Interfaz gráfica de control de volumen
 blueman                       # Gestor y applet de Bluetooth (blueman-applet)
-ttf-jetbrains-mono            # Fuente JetBrains Mono (Requerimiento)
+ttf-sourcecodepro-nerd        # Fuente SauceCodePro Nerd Font (Tipografía principal aplicada en Waybar, Rofi, Mako, GTK y Terminal)
+ttf-jetbrains-mono            # Fuente JetBrains Mono (Alternativa para desarrollo)
 otf-fira-code                 # Fuente Fira Code (Alternativa)
-ttf-font-awesome              # Iconos para Waybar
+ttf-font-awesome              # Iconos para Waybar y scripts
+noto-fonts-cjk                # Compatibilidad de caracteres CJK en barra y aplicaciones
+noto-fonts-emoji              # Soporte de emojis a color en terminal, menús y notificaciones
+ttf-nerd-fonts-symbols        # Símbolos y glifos extendidos de Nerd Fonts
 
 # ---------------------------------------------------------------------
 # 3. LANZADORES Y ESCRITORIO (AUR / pacman)
@@ -52,7 +57,7 @@ rofi-wayland                  # Fork de Rofi con soporte nativo para Wayland (Re
 nwg-drawer                    # Cajón de aplicaciones visual por categorías (Instalar vía yay/AUR)
 nwg-dock-hyprland             # Dock gráfico inferior/lateral para Hyprland (Instalar vía yay/AUR)
 wlogout                       # Menú gráfico de apagado y sesión (pacman)
-swww                          # Fondo de pantalla dinámico rápido para Wayland (Instalar vía yay)
+awww                          # Fondo de pantalla dinámico rápido para Wayland (pacman/yay)
 cliphist                      # Gestor de historial de portapapeles (Compatible con imágenes)
 
 # ---------------------------------------------------------------------
@@ -63,6 +68,14 @@ git                           # Control de versiones
 lazygit                       # Interfaz git interactiva para terminal
 yazi                          # Explorador de archivos en terminal escrito en Rust
 neovim                        # Editor de consola rápido
+zsh                           # Intérprete de comandos Z Shell moderno
+zsh-autosuggestions           # Sugerencias automáticas basadas en historial
+zsh-syntax-highlighting       # Resaltado de sintaxis en tiempo real para comandos
+zsh-history-substring-search  # Búsqueda en historial con teclas de dirección
+zsh-completions               # Colección extendida de definiciones de autocompletado
+eza                           # Reemplazo moderno y rápido para ls con iconos y git (opcional)
+bat                           # Reemplazo para cat con resaltado de sintaxis y paginación (opcional)
+fzf                           # Buscador interactivo por línea de comandos (opcional)
 
 # Nota: Para Antigravity IDE, instálalo desde tu gestor de paquetes local o AUR según sea provisto.
 
@@ -76,10 +89,10 @@ neovim                        # Editor de consola rápido
 # cd yay && makepkg -si
 #
 # Paso 2: Instalar paquetes oficiales
-# sudo pacman -S hyprland waybar xfce4-terminal mako pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy btop network-manager-applet pavucontrol blueman ttf-jetbrains-mono otf-fira-code ttf-font-awesome git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
+# sudo pacman -S hyprland waybar xfce4-terminal mako pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy flameshot btop network-manager-applet pavucontrol blueman ttf-sourcecodepro-nerd ttf-jetbrains-mono otf-fira-code ttf-font-awesome noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
 #
 # Paso 3: Instalar paquetes desde AUR
-# yay -S swww nwg-drawer nwg-dock-hyprland
+# yay -S awww nwg-drawer nwg-dock-hyprland
 #
 # Paso 4: Copiar la configuración creada al directorio home
 # cp -r config/* ~/.config/
