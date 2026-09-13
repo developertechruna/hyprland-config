@@ -83,6 +83,16 @@ if pgrep -x "mako" > /dev/null; then
     makoctl reload
 fi
 
+# Reiniciar hypridle para aplicar los tiempos de inactividad y bloqueo actualizados
+if pgrep -x "hypridle" > /dev/null; then
+    killall hypridle
+    sleep 0.5
+fi
+if command -v hypridle > /dev/null 2>&1; then
+    echo "Reiniciando gestor de inactividad y bloqueo (hypridle)..."
+    setsid hypridle > /dev/null 2>&1 &
+fi
+
 # Actualizar base de datos de aplicaciones y manejadores de protocolos MIME
 if command -v update-desktop-database > /dev/null 2>&1; then
     echo "Actualizando base de datos de aplicaciones y esquemas URL (MIME)..."
