@@ -108,8 +108,11 @@ alias pacorphans='pacman -Qtdq'
 alias clip='wl-copy'
 alias paste='wl-paste'
 alias eclipse-wayland='env GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
+alias eclipse-jdk8='env JAVA_HOME=/home/johnny/Apps/jdks/jdk1.8.0_461 PATH=/home/johnny/Apps/jdks/jdk1.8.0_461/bin:$PATH GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
+alias eclipse-jdk7='env JAVA_HOME=/home/johnny/Apps/jdks/jdk1.7.0_80 PATH=/home/johnny/Apps/jdks/jdk1.7.0_80/bin:$PATH GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
 alias antigravity-wayland='antigravity-ide --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime >/dev/null 2>&1 &'
 alias apply-dots='(cd ~/Projects/desktop/desktop-for-developer && ./apply.sh)'
+
 
 # Red e Información
 alias ports='ss -tulanp'

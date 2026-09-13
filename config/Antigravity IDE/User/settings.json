@@ -1,0 +1,43 @@
+{
+    "workbench.colorTheme": "Solarized Dark",
+    "python.languageServer": "Default",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "zsh",
+            "icon": "terminal"
+        },
+        "zsh (JDK 8)": {
+            "path": "zsh",
+            "env": {
+                "JAVA_HOME": "/home/johnny/Apps/jdks/jdk1.8.0_461",
+                "PATH": "/home/johnny/Apps/jdks/jdk1.8.0_461/bin:${env:PATH}"
+            },
+            "icon": "coffee"
+        },
+        "zsh (JDK 7)": {
+            "path": "zsh",
+            "env": {
+                "JAVA_HOME": "/home/johnny/Apps/jdks/jdk1.7.0_80",
+                "PATH": "/home/johnny/Apps/jdks/jdk1.7.0_80/bin:${env:PATH}"
+            },
+            "icon": "coffee"
+        },
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        }
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.7",
+            "path": "/home/johnny/Apps/jdks/jdk1.7.0_80"
+        },
+        {
+            "name": "JavaSE-1.8",
+            "path": "/home/johnny/Apps/jdks/jdk1.8.0_461",
+            "default": true
+        }
+    ]
+}

@@ -90,3 +90,60 @@ backup() {
         echo "El archivo o carpeta '$1' no existe."
     fi
 }
+
+# =====================================================================
+# Gestión y Conmutación Rápida de Versiones de JDK (Java)
+# =====================================================================
+export JDK7_HOME="${JDK7_HOME:-/home/johnny/Apps/jdks/jdk1.7.0_80}"
+export JDK8_HOME="${JDK8_HOME:-/home/johnny/Apps/jdks/jdk1.8.0_461}"
+
+setjdk() {
+    local version="$1"
+    local target=""
+
+    case "$version" in
+        7|1.7)
+            target="$JDK7_HOME"
+            ;;
+        8|1.8)
+            target="$JDK8_HOME"
+            ;;
+        system|sys|default|17)
+            export JAVA_HOME=""
+            export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/johnny/Apps/jdks/' | tr '\n' ':' | sed 's/:$//')"
+            echo "Restablecido a JDK del sistema."
+            command -v java >/dev/null 2>&1 && java -version
+            return 0
+            ;;
+        *)
+            echo "Uso: setjdk <7|8|system> (o escribe 'jdk7' / 'jdk8')"
+            echo ""
+            echo "JDKs configurados:"
+            echo "  7 -> $JDK7_HOME"
+            echo "  8 -> $JDK8_HOME"
+            echo "  system -> Predeterminado del sistema"
+            echo ""
+            echo "JAVA_HOME actual: ${JAVA_HOME:-Sistema}"
+            if command -v java >/dev/null 2>&1; then
+                java -version
+            fi
+            return 1
+            ;;
+    esac
+
+    if [[ -d "$target" ]]; then
+        export JAVA_HOME="$target"
+        # Remover versiones anteriores de jdks en PATH y anteponer la seleccionada
+        export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/johnny/Apps/jdks/' | tr '\n' ':' | sed 's/:$//')"
+        export PATH="$JAVA_HOME/bin:$PATH"
+        echo "JAVA_HOME configurado a: $JAVA_HOME"
+        java -version
+    else
+        echo "Error: El directorio '$target' no existe."
+        return 1
+    fi
+}
+
+jdk7() { setjdk 7; }
+jdk8() { setjdk 8; }
+

@@ -28,6 +28,15 @@ export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/go/bin" ]] && export PATH="$HOME/go/bin:$PATH"
 
+# Configuración y rutas de JDKs (Java)
+export JDK7_HOME="/home/johnny/Apps/jdks/jdk1.7.0_80"
+export JDK8_HOME="/home/johnny/Apps/jdks/jdk1.8.0_461"
+if [[ -d "$JDK8_HOME" ]]; then
+    export JAVA_HOME="$JDK8_HOME"
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
+
 # ---------------------------------------------------------------------
 # 2. HISTORIAL DE COMANDOS INTELIGENTE
 # ---------------------------------------------------------------------
