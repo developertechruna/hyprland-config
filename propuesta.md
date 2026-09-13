@@ -8,7 +8,8 @@ Basándonos en la facilidad de manejo y la compatibilidad con IDEs complejos, la
 
 ## 🎨 Especificaciones Visuales y de Diseño
 
-- **Tipografía de Programación:** **JetBrains Mono** o **Fira Code** a **9pt** (tamaño de letra 9). Ideal para maximizar el área visible de código sin perder legibilidad.
+- **Tipografía del Entorno y Programación:** **SauceCodePro Nerd Font** a **8pt** (interfaces GTK 3/4) y **9pt** (Waybar, Rofi, Mako, Terminal). Glifos Nerd Font completos para iconos integrados en consola y barra. Alternativas recomendadas: **JetBrains Mono** y **Fira Code**.
+- **Fuentes de Soporte:** **Noto Sans CJK** (caracteres asiáticos), **Noto Color Emoji** (emojis a color) y **FontAwesome** (iconografía complementaria).
 - **Bordes de Ventana:** Bordes súper finos (`border_size = 1` o `2` máximo en la configuración de Hyprland). Esto proporciona un estilo elegante y minimalista sin desperdiciar píxeles.
 - **Esquema de Colores:** **Catppuccin Mocha** (Fondo oscuro azulado/grisáceo con acentos lavanda y verde azulado) para reducir la fatiga ocular durante largas sesiones de codificación.
 
@@ -114,9 +115,11 @@ Instalación del sistema base (recomendamos **Fedora Workstation** si buscas est
 - Instalar **PipeWire** (audio).
 
 ### Fase 2: Estilización y Fuentes
-- Configurar las fuentes **JetBrains Mono** a tamaño 9 en el sistema y en el terminal (**XFCE4-Terminal**).
+- Configurar las fuentes a tamaño 9 en el sistema (**SauceCodePro Nerd Font 9** o **JetBrains Mono 9**) y en el terminal (**XFCE4-Terminal**).
 - Estilizar la barra superior **Waybar** con tamaño 9 (`style.css`).
-- Aplicar el tema Catppuccin GTK para que Eclipse mantenga una estética moderna y oscura en consonancia con el sistema.
+- Aplicar el tema Catppuccin Mocha (`catppuccin-mocha-lavender-standard+default`) en GTK 2, 3 y 4 con `settings.ini`, `.gtkrc-2.0` y reglas CSS compactas (`gtk.css`) para ajustar la altura de headerbars y márgenes al tamaño 9.
+- Sincronizar esquemas de Wayland mediante GSettings (`org.gnome.desktop.interface`) para garantizar coherencia en Eclipse, Thunar, diálogos nativos y aplicaciones Flatpak.
+
 
 ### Fase 3: Integración de Eclipse y Antigravity IDE
 - Crear accesos directos en el sistema (`.desktop` files) con las variables de entorno para que Eclipse y Antigravity IDE se ejecuten nativamente en Wayland.

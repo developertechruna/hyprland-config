@@ -1,0 +1,16 @@
+# Configuración GTK 2 para compatibilidad y coherencia visual
+gtk-font-name="SauceCodePro Nerd Font 8"
+gtk-theme-name="catppuccin-mocha-lavender-standard+default"
+gtk-icon-theme-name="Tela-circle-dark"
+gtk-cursor-theme-name="catppuccin-mocha-lavender-cursors"
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
+gtk-button-images=1
+gtk-menu-images=1
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"

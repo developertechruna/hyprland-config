@@ -1,0 +1,32 @@
+[Added Associations]
+text/plain=sublime_text.desktop;
+text/html=brave-browser.desktop;
+x-scheme-handler/http=brave-browser.desktop;
+x-scheme-handler/https=brave-browser.desktop;
+x-scheme-handler/about=brave-browser.desktop;
+x-scheme-handler/unknown=brave-browser.desktop;
+x-scheme-handler/claude=com.anthropic.Claude.desktop;
+x-scheme-handler/claude-desktop=com.anthropic.Claude.desktop;
+x-scheme-handler/claude-nest=com.anthropic.Claude.desktop;
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop;
+x-scheme-handler/antigravity-ide=antigravity-ide-url-handler.desktop;
+x-scheme-handler/vscode=antigravity-ide-url-handler.desktop;
+x-scheme-handler/vscode-insiders=antigravity-ide-url-handler.desktop;
+x-scheme-handler/bruno=bruno.desktop;
+x-scheme-handler/whatsapp=com.rtosta.zapzap.desktop;
+
+[Default Applications]
+text/html=brave-browser.desktop;
+x-scheme-handler/http=brave-browser.desktop;
+x-scheme-handler/https=brave-browser.desktop;
+x-scheme-handler/about=brave-browser.desktop;
+x-scheme-handler/unknown=brave-browser.desktop;
+x-scheme-handler/claude=com.anthropic.Claude.desktop;
+x-scheme-handler/claude-desktop=com.anthropic.Claude.desktop;
+x-scheme-handler/claude-nest=com.anthropic.Claude.desktop;
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop;
+x-scheme-handler/antigravity-ide=antigravity-ide-url-handler.desktop;
+x-scheme-handler/vscode=antigravity-ide-url-handler.desktop;
+x-scheme-handler/vscode-insiders=antigravity-ide-url-handler.desktop;
+x-scheme-handler/bruno=bruno.desktop;
+x-scheme-handler/whatsapp=com.rtosta.zapzap.desktop;
