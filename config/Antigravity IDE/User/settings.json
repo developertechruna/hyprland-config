@@ -1,7 +1,11 @@
 {
     "workbench.colorTheme": "Solarized Dark",
     "python.languageServer": "Default",
-    "terminal.integrated.fontSize": 13,
+    "editor.fontFamily": "'SauceCodePro Nerd Font', 'JetBrains Mono', monospace",
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "'SauceCodePro Nerd Font Mono', 'SauceCodePro Nerd Font', monospace",
+    "terminal.integrated.fontSize": 12,
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {
         "zsh": {
