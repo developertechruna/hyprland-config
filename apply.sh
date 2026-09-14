@@ -56,7 +56,10 @@ fi
 
 echo "Reiniciando rotación automática de fondos de pantalla..."
 pkill -f "wallpaper_loop.sh" > /dev/null 2>&1
-setsid bash ~/.config/hypr/wallpaper_loop.sh > /dev/null 2>&1 &
+systemctl --user stop wallpaper-loop.service > /dev/null 2>&1 || true
+systemd-run --user --unit=wallpaper-loop bash "$HOME/.config/hypr/wallpaper_loop.sh" > /dev/null 2>&1 || {
+    nohup setsid bash "$HOME/.config/hypr/wallpaper_loop.sh" > /dev/null 2>&1 &
+}
 
 echo "Reiniciando Waybar para aplicar los cambios..."
 # Si Waybar está corriendo activamente como servicio de systemd
