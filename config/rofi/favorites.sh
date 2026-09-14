@@ -7,7 +7,7 @@ favorites=(
   ["Firefox"]="firefox"
   ["Brave"]="brave --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-webrtc-pipewire-capturer"
   ["Antigravity IDE"]="antigravity-ide"
-  ["Eclipse"]="/home/johnny/Apps/eclipse/eclipse"
+  ["Eclipse"]="~/.local/bin/eclipse"
   ["Btop"]="xfce4-terminal -e btop"
   ["Terminal"]="xfce4-terminal"
   ["Thunar"]="thunar"

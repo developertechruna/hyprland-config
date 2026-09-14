@@ -1,0 +1,49 @@
+# @title Eclipse Visual & Productivity Preferences (Catppuccin / Modern Developer)
+file_export_version=3.0
+
+# --- General Appearance & Memory Monitor ---
+/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR=true
+/instance/org.eclipse.ui/SHOW_TEXT_ON_PERSPECTIVE_BAR=false
+/instance/org.eclipse.ui/DOCK_PERSPECTIVE_BAR=topRight
+
+# --- Text Editors (Lines, Margins, Appearance) ---
+/instance/org.eclipse.ui.editors/lineNumberRuler=true
+/instance/org.eclipse.ui.editors/printMargin=true
+/instance/org.eclipse.ui.editors/printMarginColumn=120
+/instance/org.eclipse.ui.editors/showWhitespaceCharacters=false
+/instance/org.eclipse.ui.editors/overviewRuler=true
+/instance/org.eclipse.ui.editors/highlightCurrentLine=true
+/instance/org.eclipse.ui.editors/spacesForTabs=true
+/instance/org.eclipse.ui.editors/tabWidth=4
+
+# --- Typography (JetBrains Mono 9pt) ---
+/instance/org.eclipse.ui.workbench/org.eclipse.jface.textfont=1|JetBrains Mono|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.ui.workbench.texteditor.blockSelectionModeFont=1|JetBrains Mono|9.0|0|GTK|1|;
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.editors.textfont=1|JetBrains Mono|9.0|0|GTK|1|;
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.consoleFont=1|JetBrains Mono|9.0|0|GTK|1|;
+
+# --- Encoding & Line Endings (UTF-8 & Unix LF) ---
+/instance/org.eclipse.core.resources/encoding=UTF-8
+/instance/org.eclipse.core.runtime/line.separator=\n
+
+# --- Java Content Assist (Instant 40ms, all letters trigger) ---
+/instance/org.eclipse.jdt.ui/content_assist_autoactivation=true
+/instance/org.eclipse.jdt.ui/content_assist_autoactivation_delay=40
+/instance/org.eclipse.jdt.ui/content_assist_autoactivation_triggers_java=.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_
+/instance/org.eclipse.jdt.ui/content_assist_autoactivation_triggers_javadoc=@#
+/instance/org.eclipse.jdt.ui/content_assist_insert_completion=true
+/instance/org.eclipse.jdt.ui/content_assist_guess_method_arguments=true
+
+# --- Smart Typing & Subword Navigation (CamelCase cursor navigation) ---
+/instance/org.eclipse.jdt.ui/smart_typing_subword_navigation=true
+/instance/org.eclipse.jdt.ui/smart_typing_escapeStrings=true
+/instance/org.eclipse.jdt.ui/smart_typing_closeBrackets=true
+/instance/org.eclipse.jdt.ui/smart_typing_closeStrings=true
+
+# --- Save Actions (Auto-format, Organize Imports, Clean Whitespace) ---
+/instance/org.eclipse.jdt.ui/editor_save_participant_org.eclipse.jdt.ui.postsavelistener.cleanup=true
+/instance/org.eclipse.jdt.ui/sp_cleanup.format_source_code=true
+/instance/org.eclipse.jdt.ui/sp_cleanup.organize_imports=true
+/instance/org.eclipse.jdt.ui/sp_cleanup.remove_trailing_whitespaces=true
+/instance/org.eclipse.jdt.ui/sp_cleanup.remove_trailing_whitespaces_all=true
+/instance/org.eclipse.jdt.ui/sp_cleanup.on_save_use_additional_actions=true

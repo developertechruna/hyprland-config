@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Eclipse IDE
+Comment=Eclipse Integrated Development Environment
+Exec=env GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 SWT_GTK3=1 /home/johnny/Apps/eclipse/eclipse %u
+Icon=/home/johnny/Apps/eclipse/icon.xpm
+Terminal=false
+StartupWMClass=Eclipse
+Type=Application
+Categories=Development;IDE;Java;
+StartupNotify=true
+MimeType=text/x-java;text/x-java-source;

@@ -21,6 +21,14 @@ if [ -f "config/gtk-2.0/.gtkrc-2.0" ]; then
     cp -v config/gtk-2.0/.gtkrc-2.0 ~/.gtkrc-2.0
 fi
 
+# Sincronizar scripts y binarios en ~/.local/bin
+if [ -d "bin" ]; then
+    echo "Sincronizando scripts de usuario en ~/.local/bin..."
+    mkdir -p ~/.local/bin
+    cp -v bin/* ~/.local/bin/
+    chmod +x ~/.local/bin/*
+fi
+
 # Sincronizar lanzadores de aplicaciones y manejadores de URL en ~/.local/share/applications
 if [ -d "applications" ]; then
     echo "Sincronizando lanzadores de aplicaciones en ~/.local/share/applications..."
