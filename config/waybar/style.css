@@ -1,50 +1,67 @@
-/* Estilo de Waybar en Catppuccin Mocha */
-/* Ubicación original destino: ~/.config/waybar/style.css */
+/* ==========================================
+   Estilo de Waybar en Islas Flotantes (Catppuccin Mocha)
+   Ubicación original destino: ~/.config/waybar/style.css
+   ========================================== */
 
 * {
     border: none;
     border-radius: 0;
-    /* Fuente SauceCodePro Nerd Font de tamaño 9 (Requerimiento) */
-    font-family: "SauceCodePro Nerd Font", "Noto Sans CJK", sans-serif;
-    font-size: 9pt;
+    font-family: "Inter", "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 10pt;
     min-height: 0;
 }
 
+/* Barra principal transparente */
 window#waybar {
-    background-color: #1e1e2e; /* Fondo Catppuccin Mocha */
+    background-color: transparent;
     color: #cdd6f4;
-    transition-property: background-color;
-    transition-duration: .5s;
-    border-bottom: 1px solid #313244;
 }
 
-/* Estilos de botones de Espacios de Trabajo */
-#workspaces button,
-#workspaces button label {
-    font-size: 11pt; /* Tamaño optimizado para barra de 24px de alto con la nueva fuente */
+/* ==========================================
+   Contenedores de las 3 Islas Flotantes
+   ========================================== */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: rgba(24, 24, 37, 0.78);
+    border: 1px solid rgba(205, 214, 244, 0.12);
+    border-radius: 10px;
+    padding: 2px 6px;
+    margin: 0 1px;
+}
+
+/* ==========================================
+   Isla Izquierda: Workspaces & Taskbar
+   ========================================== */
+#workspaces {
+    background: transparent;
+    padding: 0;
 }
 
 #workspaces button {
-    padding: 0 6px;
-    margin: 2px 2px;
-    background-color: transparent;
-    color: #bac2de;
-    border-radius: 4px;
-}
-
-#workspaces button label {
-    padding: 0;
-    margin: 0;
+    padding: 1px 3px;
+    margin: 1px 1px;
+    background-color: rgba(49, 50, 68, 0.35);
+    color: #a6adc8;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: 600;
+    font-size: 9pt;
 }
 
 #workspaces button:hover {
-    background: rgba(137, 180, 250, 0.15);
+    background-color: rgba(137, 180, 250, 0.20);
     color: #89b4fa;
+    border-color: rgba(137, 180, 250, 0.40);
 }
 
 #workspaces button.active {
+    background-color: rgba(203, 166, 247, 0.22);
     color: #cba6f7;
-    background-color: rgba(203, 166, 247, 0.15); /* Resaltado de fondo en vez de borde inferior */
+    border-color: rgba(203, 166, 247, 0.50);
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
@@ -52,191 +69,168 @@ window#waybar {
     color: #11111b;
 }
 
-/* Espacios de trabajo vacíos: se muestran como un único punto minimalista */
-#workspaces button.empty {
-    min-width: 8px; /* Ajustado a 8px para caber perfectamente */
-    min-height: 8px;
-    padding: 0;
-    margin: 8px 6px; /* Centrado para altura de 24px (8 + 8 + 8 = 24) */
-    background-color: #45475a; /* Gris oscuro (Surface1) */
-    border-radius: 50%;
-    border-bottom: none;
-}
-
-#workspaces button.empty label {
-    font-size: 0px; /* Ocultar la etiqueta vacía para que no altere el tamaño */
-    padding: 0;
-    margin: 0;
-}
-
-#workspaces button.active.empty {
-    background-color: #cba6f7; /* Lavanda activo */
-    border-bottom: none;
-}
-
-#workspaces button.empty:hover {
-    background-color: #89b4fa; /* Azul al pasar el mouse */
-    border-bottom: none;
-}
-
-/* Módulos individuales */
-#mode, #clock, #battery, #backlight, #pulseaudio, #pulseaudio.microphone, #network, #custom-vpn, #custom-media, #cpu, #memory, #window, #tray, #custom-language {
-    padding: 0 10px;
-    margin: 2px 0;
-    background-color: #181825;
-    border-radius: 4px;
-    color: #cdd6f4;
-}
-
-/* Estilos para el taskbar */
+/* Barra de tareas (Taskbar) */
 #taskbar {
-    margin: 2px 0;
-    padding: 0 4px;
-    background-color: #181825;
-    border-radius: 4px;
+    background: transparent;
+    margin-left: 2px;
+    padding: 0;
 }
 
 #taskbar button {
-    padding: 0 6px;
-    margin: 0 2px;
-    border-radius: 4px;
+    padding: 1px 2px;
+    margin: 1px 0.5px;
+    border-radius: 5px;
     color: #cdd6f4;
     background-color: transparent;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 #taskbar button:hover {
-    background-color: rgba(137, 180, 250, 0.15);
+    background-color: rgba(137, 180, 250, 0.18);
     color: #89b4fa;
 }
 
 #taskbar button.active {
-    background-color: rgba(203, 166, 247, 0.15);
-    color: #cba6f7;
+    background-color: rgba(203, 166, 247, 0.18);
+    border-bottom: 2px solid #cba6f7;
 }
 
-/* Espaciado personalizado y colores */
-#window {
-    background-color: transparent;
-    color: #cba6f7;
-    font-weight: bold;
+/* ==========================================
+   Isla Central: Reloj y Fecha
+   ========================================== */
+#clock {
+    padding: 2px 12px;
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: #cdd6f4;
+    background: transparent;
+}
+
+/* ==========================================
+   Isla Derecha: Estadísticas del Sistema (Estilo Píldoras)
+   ========================================== */
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#pulseaudio.microphone,
+#custom-microphone,
+#battery,
+#custom-language,
+#custom-media,
+#custom-power,
+#tray {
+    padding: 2px 8px;
+    margin: 0 2px;
+    background: transparent;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 9.5pt;
+    font-weight: 600;
 }
 
 #cpu {
-    color: #a6e3a1;
-}
-
-#memory {
-    color: #f9e2af;
-}
-
-#network {
     color: #89dceb;
 }
 
-#pulseaudio {
+#memory {
+    color: #cba6f7;
+}
+
+#network {
     color: #89b4fa;
 }
 
-#pulseaudio.microphone {
-    color: #a6e3a1; /* Green when active */
+#pulseaudio {
+    color: #b4befe;
 }
 
-#pulseaudio.microphone.muted {
-    color: #f38ba8; /* Red when muted */
+#custom-microphone {
+    font-size: 11.5pt;
+}
+
+#custom-microphone,
+#pulseaudio.microphone {
+    color: #a6e3a1;
+    transition: all 0.2s ease;
+}
+
+#custom-microphone.zero {
+    color: #a6adc8;
+}
+
+#custom-microphone.muted,
+#pulseaudio.microphone.muted,
+#pulseaudio.microphone.source-muted,
+#pulseaudio.microphone.default-muted {
+    color: #f38ba8;
+}
+
+#custom-microphone:hover,
+#pulseaudio.microphone:hover {
+    color: #89b4fa;
+}
+
+#battery {
+    font-size: 11.5pt;
+    color: #a6e3a1;
+    transition: all 0.2s ease;
+}
+
+#battery:hover {
+    color: #89b4fa;
+}
+
+#battery.warning {
+    color: #f9e2af;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+#battery.charging {
+    color: #94e2d5;
 }
 
 #custom-language {
     color: #fab387;
 }
 
-#backlight {
-    color: #f5c2e7;
-}
-
-#battery {
-    color: #f38ba8;
-}
-
-#battery.charging {
-    color: #a6e3a1;
-}
-
-#clock {
-    color: #cba6f7;
-    font-weight: bold;
-}
-
-#tray {
-    background-color: transparent;
-}
-
-#custom-vpn {
-    color: #f5c2e7;
-}
-
-#custom-vpn.connected {
-    color: #a6e3a1;
-}
-
-#custom-vpn.disconnected {
-    color: #f38ba8;
-}
-
 #custom-media {
-    color: #b4befe; /* Lavender */
-}
-
-#custom-media.playing {
-    color: #a6e3a1; /* Green when playing */
-}
-
-#custom-media.paused {
-    color: #bac2de; /* Subtext when paused */
-    font-style: italic;
-}
-
-#custom-lock, #custom-reboot, #custom-power {
-    padding: 0 10px;
-    margin: 2px 0;
-    background-color: #181825;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-#custom-lock {
-    color: #f9e2af; /* Amarillo de Catppuccin */
-}
-
-#custom-lock:hover {
-    background-color: #f9e2af;
-    color: #11111b;
-}
-
-#custom-reboot {
-    color: #a6e3a1; /* Verde de Catppuccin */
-}
-
-#custom-reboot:hover {
-    background-color: #a6e3a1;
-    color: #11111b;
+    color: #f5c2e7;
+    font-family: "Inter", sans-serif;
+    font-weight: normal;
 }
 
 #custom-power {
-    color: #f38ba8; /* Rojo de Catppuccin */
+    color: #f38ba8;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 #custom-power:hover {
-    background-color: #f38ba8;
-    color: #11111b;
+    background-color: rgba(243, 139, 168, 0.25);
+    color: #f38ba8;
 }
 
-tooltip {
-    background: #1e1e2e;
-    border: 1px solid #cba6f7;
-    border-radius: 6px;
+#tray {
+    padding: 0 4px;
 }
+
+/* ==========================================
+   Tooltips
+   ========================================== */
+tooltip {
+    background-color: rgba(24, 24, 37, 0.95);
+    border: 1px solid rgba(203, 166, 247, 0.35);
+    border-radius: 10px;
+    padding: 8px;
+}
+
 tooltip label {
+    font-family: "Inter", sans-serif;
+    font-size: 9.5pt;
     color: #cdd6f4;
-    font-size: 9pt;
 }
