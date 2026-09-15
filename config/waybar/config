@@ -1,132 +1,153 @@
-// Configuración de Waybar
+// ==========================================
+// Configuración de Waybar (Diseño de Islas Flotantes y Tipografía Dual)
 // Ubicación original destino: ~/.config/waybar/config
+// ==========================================
 {
-    "layer": "top", // Mostrar en la capa superior
-    "position": "top", // Posición de la barra (arriba)
-    "height": 24, // Altura compacta para ahorrar pantalla
-    "spacing": 4, // Espacio entre módulos
+    "layer": "top",
+        "position": "top",
+            "height": 26,
+                "spacing": 1,
+                    "margin-top": 2,
+                        "margin-bottom": 2,
+                            "margin-left": 6,
+                                "margin-right": 6,
 
-    // Módulos ordenados de izquierda a derecha
-    "modules-left": ["wlr/taskbar", "hyprland/submap"],
-    //"modules-center": ["hyprland/window"],
-    //#"modules-right": ["cpu", "memory", "network", "custom/vpn", "custom/media", "custom/language", "pulseaudio", "pulseaudio#microphone", "backlight", "battery", "clock", "tray", "custom/power"],
-    "modules-right": ["cpu", "memory", "custom/media", "custom/language", "pulseaudio", "pulseaudio#microphone", "backlight", "battery", "clock", "tray", "custom/power"],
+                                    // Módulos organizados en 3 islas flotantes independientes
+                                    //"modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/submap"],
+                                    "modules-left": ["wlr/taskbar", "hyprland/submap"],
+                                        "modules-center": ["clock"],
+                                            "modules-right": [
+                                                "cpu",
+                                                "memory",
+                                                "network",
+                                                /*"custom/media",*/
+                                                "custom/language",
+                                                "pulseaudio",
+                                                "custom/microphone",
+                                                "battery",
+                                                "tray",
+                                                "custom/power"
+                                            ],
 
-    // Configuración de los módulos individuales
+                                                // Espacios de trabajo (Workspaces estilo píldoras activas)
+                                                "hyprland/workspaces": {
+        "disable-scroll": false,
+            "all-outputs": true,
+                "active-only": false,
+                    "format": "{id}",
+                        "persistent-workspaces": {
+            "*": 6
+        }
+    },
+
+    // Barra de tareas / aplicaciones abiertas
     "wlr/taskbar": {
         "format": "{icon}",
-        "icon-size": 14,
-        "icon-theme": "Adwaita",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "app_ids-mapping": {
+            "icon-size": 15,
+                "icon-theme": "Tela-circle-dark",
+                    "tooltip-format": "{title}",
+                        "on-click": "activate",
+                            "on-click-middle": "close",
+                                "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
         }
     },
 
     "hyprland/window": {
         "format": " {title} ",
-        "max-length": 50,
-        "separate-outputs": true
+            "max-length": 45,
+                "separate-outputs": true
     },
 
+    // Reloj central con fecha y hora completa
+    "clock": {
+        "format": "{:%a %b %d, %Y   %H:%M:%S}",
+            "interval": 1,
+                "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // Estadísticas del sistema estilo pills (JetBrains Mono)
     "cpu": {
-        "format": "  {usage}%",
-        "tooltip": true,
-        "interval": 2
+        "format": "CPU {usage}%",
+            "tooltip": true,
+                "interval": 2
     },
 
     "memory": {
-        "format": "  {used:0.1f}GB",
-        "tooltip": true,
-        "interval": 2
+        "format": "RAM {used:0.1f}GB/{total:0.1f}GB",
+            "tooltip": true,
+                "interval": 2
     },
 
     "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  {ifname}",
-        "format-disconnected": "󰖪  Desconectado",
-        "tooltip-format": "{ifname} via {gwaddr}"
+        "format-wifi": "NET {signalStrength}%",
+            "format-ethernet": "NET 100%",
+                "format-disconnected": "NET 󰖪",
+                    "tooltip-format": "{ifname} via {gwaddr}"
     },
 
     "custom/language": {
         "exec": "python3 ~/.config/hypr/get_layout.py",
-        "interval": 1,
-        "format": "{}",
-        "on-click": "python3 ~/.config/hypr/switch_layout.py",
-        "signal": 1
+            "interval": 1,
+                "format": "{}",
+                    "on-click": "python3 ~/.config/hypr/switch_layout.py",
+                        "signal": 1
     },
 
     "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": " 󰝟 ",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        "format": "VOL {volume}%",
+            "format-muted": "VOL 󰝟",
+                "on-click": "pavucontrol"
     },
 
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "  ",
-        "on-click": "bash ~/.config/hypr/toggle_mic.sh",
-        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
-        "tooltip": true,
-        "tooltip-format": "Micrófono: {volume}%"
-    },
-
-    "backlight": {
-        "format": "󰃠  {percent}%",
-        "interval": 2
+    "custom/microphone": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "bash ~/.config/waybar/mic.sh",
+        "interval": 1,
+        "signal": 11,
+        "on-click": "bash ~/.config/hypr/toggle_mic.sh; pkill -RTMIN+11 waybar",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+; pkill -RTMIN+11 waybar",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-; pkill -RTMIN+11 waybar",
+        "tooltip": true
     },
 
     "battery": {
         "states": {
-            "warning": 20,
-            "critical": 10
+            "warning": 25,
+            "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󰚥",
+        "format-full": "󰁹",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": true,
+        "tooltip-format": "Batería: {capacity}% ({timeTo})",
+        "tooltip-format-charging": "Batería: {capacity}% (Cargando - {timeTo})",
+        "tooltip-format-plugged": "Batería: {capacity}% (Conectado)"
     },
 
-    "clock": {
-        "format": "   {:%d/%m/%Y %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-
-    "custom/vpn": {
+    /*"custom/media": {
         "format": "{}",
-        "interval": 5,
-        "return-type": "json",
-        "exec": "/home/johnny/.config/waybar/vpn.sh",
-        "on-click": "/home/johnny/.config/waybar/vpn.sh menu",
-        "signal": 8
-    },
-
-    "custom/media": {
-        "format": "{}",
-        "interval": 2,
-        "return-type": "json",
-        "exec": "/home/johnny/.config/waybar/media.sh",
-        "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-        "signal": 10
-    },
+            "interval": 2,
+                "return-type": "json",
+                    "exec": "/home/johnny/.config/waybar/media.sh",
+                        "on-click": "playerctl play-pause",
+                            "on-scroll-up": "playerctl next",
+                                "on-scroll-down": "playerctl previous",
+                                    "signal": 10
+    },*/
 
     "tray": {
         "icon-size": 14,
-        "spacing": 10
+            "spacing": 8
     },
 
     "custom/power": {
         "format": "",
-        "tooltip-format": "Menú de Apagado y Sesión",
-        "on-click": "wlogout",
-        "interval": "once"
+            "tooltip-format": "Menú de Apagado y Sesión",
+                "on-click": "wlogout",
+                    "interval": "once"
     }
 }

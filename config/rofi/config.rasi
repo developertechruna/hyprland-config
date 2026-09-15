@@ -1,136 +1,125 @@
-/* Configuración de Rofi en Wayland */
+/* Configuración de Rofi en Wayland - Estilo Spotlight Card */
 /* Ubicación original destino: ~/.config/rofi/config.rasi */
 
 configuration {
     modi: "drun,run,window";
-    icon-theme: "Oranchelo";
+    icon-theme: "Tela-circle-dark";
     show-icons: true;
     terminal: "xfce4-terminal";
-    drun-display-format: "{icon} {name}";
+    drun-display-format: "{name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Ejecutar ";
-    display-window: " 󰖲  Ventanas ";
-    sidebar-mode: true;
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    sidebar-mode: false;
 }
 
 @theme "/dev/null"
 
 * {
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #cba6f7;
-    selected-col: #313244;
-    blue: #89b4fa;
-    fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
-    grey: #6c7086;
+    bg-col:             rgba(30, 30, 46, 0.85);
+    bg-col-input:       rgba(49, 50, 68, 0.65);
+    border-col:         rgba(203, 166, 247, 0.35);
+    selected-col:       rgba(69, 71, 90, 0.70);
+    blue:               #89b4fa;
+    mauve:              #cba6f7;
+    fg-col:             #cdd6f4;
+    fg-muted:           #6c7086;
+    fg-subtext:         #a6adc8;
 
-    width: 600;
-    /* Fuente SauceCodePro Nerd Font de tamaño 9 (Requerimiento) */
-    font: "SauceCodePro Nerd Font 9";
-}
-
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
+    font:               "Inter 11";
 }
 
 window {
-    height: 360;
-    border: 1px;
-    border-color: @border-col;
-    background-color: @bg-col;
-    border-radius: 6px;
+    transparency:       "real";
+    background-color:   @bg-col;
+    text-color:         @fg-col;
+    border:             1px solid;
+    border-color:       @border-col;
+    border-radius:      16px;
+    width:              520px;
+    padding:            14px;
+    location:           center;
+    anchor:             center;
 }
 
 mainbox {
-    background-color: @bg-col;
+    background-color:   transparent;
+    children:           [ inputbar, listview ];
+    spacing:            10px;
 }
 
 inputbar {
-    children: [prompt,entry];
-    background-color: @bg-col;
-    border-radius: 5px;
-    padding: 2px;
+    background-color:   @bg-col-input;
+    border-radius:      10px;
+    padding:            8px 12px;
+    children:           [ prompt, entry ];
+    spacing:            10px;
 }
 
 prompt {
-    background-color: @blue;
-    padding: 6px;
-    text-color: @bg-col;
-    border-radius: 3px;
-    margin: 10px 0px 0px 10px;
-}
-
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
+    background-color:   transparent;
+    text-color:         @blue;
+    font:               "JetBrainsMono Nerd Font 13";
+    vertical-align:     0.5;
 }
 
 entry {
-    padding: 6px;
-    margin: 10px 10px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
-    placeholder: "Buscar...";
+    background-color:   transparent;
+    text-color:         @fg-col;
+    placeholder:        "Search applications...";
+    placeholder-color:  @fg-muted;
+    vertical-align:     0.5;
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 10px 0px 10px;
-    columns: 1;
-    lines: 8;
-    background-color: @bg-col;
+    background-color:   transparent;
+    columns:            1;
+    lines:              6;
+    spacing:            4px;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
 }
 
 element {
-    padding: 5px;
-    background-color: @bg-col;
-    text-color: @fg-col;
+    background-color:   transparent;
+    text-color:         @fg-subtext;
+    border-radius:      8px;
+    padding:            8px 12px;
+    spacing:            12px;
+    orientation:        horizontal;
+    children:           [ element-icon, element-text ];
 }
 
 element-icon {
-    size: 20px;
+    background-color:   transparent;
+    size:               32px;
+    vertical-align:     0.5;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+    font:               "Inter Medium 11";
 }
 
 element selected {
-    background-color:  @selected-col;
-    text-color: @blue;
-    border-radius: 4px;
+    background-color:   @selected-col;
+    text-color:         #ffffff;
 }
 
-mode-switcher {
-    spacing: 0;
-  margin: 10px 10px 10px 10px;
+element selected element-text {
+    text-color:         #ffffff;
 }
 
-button {
-    padding: 5px;
-    background-color: @bg-col;
-    text-color: @grey;
-    vertical-align: 0.5; 
-    horizontal-align: 0.5;
-}
-
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
-}
-
-message {
-    background-color: @bg-col;
-    margin: 2px;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-textbox {
-    padding: 6px;
-    margin: 10px 0px 0px 20px;
-    text-color: @blue;
-    background-color: @bg-col;
+error-message {
+    padding:            15px;
+    border-radius:      10px;
+    background-color:   @bg-col;
+    text-color:         #f38ba8;
 }

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Script para sincronizar las configuraciones de GTK y GNOME Interface en Hyprland / Wayland
 
-FONT="SauceCodePro Nerd Font 8"
-FONT_BOLD="SauceCodePro Nerd Font Bold 8"
+FONT="Inter 10"
+FONT_BOLD="Inter SemiBold 10"
+FONT_MONO="JetBrainsMono Nerd Font 10"
 THEME="catppuccin-mocha-lavender-standard+default"
 ICONS="Tela-circle-dark"
 CURSOR="catppuccin-mocha-lavender-cursors"
@@ -10,10 +11,10 @@ CURSOR_SIZE=24
 
 # Sincronización mediante GSettings para Wayland / XDG Portals / GTK 3 & 4
 if command -v gsettings > /dev/null 2>&1; then
-    # Fuentes tamaño 9
+    # Fuentes de interfaz (Inter) y monoespaciada (JetBrains Mono)
     gsettings set org.gnome.desktop.interface font-name "$FONT"
     gsettings set org.gnome.desktop.interface document-font-name "$FONT"
-    gsettings set org.gnome.desktop.interface monospace-font-name "$FONT"
+    gsettings set org.gnome.desktop.interface monospace-font-name "$FONT_MONO"
     gsettings set org.gnome.desktop.wm.preferences titlebar-font "$FONT_BOLD"
 
     # Temas e Iconos

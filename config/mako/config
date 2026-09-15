@@ -2,18 +2,18 @@
 # Ubicación original destino: ~/.config/mako/config
 
 # Tipografía y Texto
-font=SauceCodePro Nerd Font 9
+font=Inter 10
 background-color=#1e1e2e
 text-color=#cdd6f4
 
 # Dimensiones y Espaciado
-width=320
+width=340
 height=110
 margin=10
 padding=12
 border-size=1
 border-color=#cba6f7
-border-radius=4
+border-radius=12
 
 # Barra de progreso e iconos
 progress-color=over #313244

@@ -15,6 +15,10 @@ chmod +x ~/.config/hypr/launch_docks.py
 chmod +x ~/.config/hypr/toggle_dock.py
 chmod +x ~/.config/hypr/wallpaper_loop.sh
 chmod +x ~/.config/hypr/set_gtk.sh 2>/dev/null || true
+chmod +x ~/.config/waybar/mic.sh 2>/dev/null || true
+chmod +x ~/.config/waybar/media.sh 2>/dev/null || true
+chmod +x ~/.config/waybar/vpn.sh 2>/dev/null || true
+chmod +x ~/.config/hypr/power_notify.sh 2>/dev/null || true
 
 # Copiar .gtkrc-2.0 al directorio raíz de usuario para compatibilidad GTK 2
 if [ -f "config/gtk-2.0/.gtkrc-2.0" ]; then
@@ -102,6 +106,13 @@ fi
 if command -v hypridle > /dev/null 2>&1; then
     echo "Reiniciando gestor de inactividad y bloqueo (hypridle)..."
     setsid hypridle > /dev/null 2>&1 &
+fi
+
+# Reiniciar monitor de energía (power_notify.sh)
+pkill -f "power_notify.sh" > /dev/null 2>&1 || true
+if [ -f "$HOME/.config/hypr/power_notify.sh" ]; then
+    echo "Iniciando monitor de batería y corriente (power_notify.sh)..."
+    nohup setsid bash "$HOME/.config/hypr/power_notify.sh" > /dev/null 2>&1 &
 fi
 
 # Actualizar base de datos de aplicaciones y manejadores de protocolos MIME

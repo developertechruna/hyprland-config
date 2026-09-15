@@ -2,8 +2,8 @@
 # Ubicación destino original: ~/.config/xfce4/terminal/terminalrc
 
 [Configuration]
-# Fuente SauceCodePro Nerd Font de tamaño 9 (Requerimiento)
-FontName=SauceCodePro Nerd Font 9
+# Fuente JetBrainsMono Nerd Font de tamaño 10
+FontName=JetBrainsMono Nerd Font 10
 
 # Esquema de Colores: Catppuccin Mocha
 ColorForeground=#cdd6f4
