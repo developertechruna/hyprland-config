@@ -129,20 +129,63 @@ window#waybar {
     font-weight: 600;
 }
 
+#cpu,
+#memory,
+#network {
+    font-size: 11.5pt;
+    transition: all 0.2s ease;
+}
+
 #cpu {
     color: #89dceb;
+}
+
+#cpu.warning {
+    color: #f9e2af;
+}
+
+#cpu.critical {
+    color: #f38ba8;
 }
 
 #memory {
     color: #cba6f7;
 }
 
+#memory.warning {
+    color: #f9e2af;
+}
+
+#memory.critical {
+    color: #f38ba8;
+}
+
 #network {
+    color: #a6e3a1;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#cpu:hover,
+#memory:hover,
+#network:hover {
     color: #89b4fa;
 }
 
 #pulseaudio {
+    font-size: 11.5pt;
     color: #b4befe;
+    transition: all 0.2s ease;
+}
+
+#pulseaudio.muted {
+    color: #f38ba8;
+}
+
+#pulseaudio:hover {
+    color: #89b4fa;
 }
 
 #custom-microphone {
@@ -194,7 +237,25 @@ window#waybar {
 }
 
 #custom-language {
+    font-size: 11.5pt;
     color: #fab387;
+    transition: all 0.2s ease;
+}
+
+#custom-language.la {
+    color: #fab387;
+}
+
+#custom-language.us {
+    color: #89b4fa;
+}
+
+#custom-language.caps {
+    color: #f38ba8;
+}
+
+#custom-language:hover {
+    color: #ffffff;
 }
 
 #custom-media {

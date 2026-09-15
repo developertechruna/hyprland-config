@@ -40,10 +40,22 @@ def get_status():
 
 def main():
     layout, caps_lock = get_status()
+    icon = "\U000f05ca"  # 󰗊 md-translate
+    
+    css_class = layout.lower()
     if caps_lock:
-        print(f"<u>{layout.upper()}</u>")
-    else:
-        print(layout)
+        css_class += " caps"
+        
+    layout_name = "Español Latinoamericano (LA)" if layout == "LA" else "Inglés Estados Unidos (US)"
+    caps_text = "Activo" if caps_lock else "Desactivado"
+    tooltip = f"Distribución: {layout_name}\nBloq Mayús: {caps_text}\nClic para cambiar"
+    
+    data = {
+        "text": icon,
+        "tooltip": tooltip,
+        "class": css_class
+    }
+    print(json.dumps(data))
 
 if __name__ == "__main__":
     main()

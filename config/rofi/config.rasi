@@ -3,7 +3,7 @@
 
 configuration {
     modi: "drun,run,window";
-    icon-theme: "Tela-circle-dark";
+    icon-theme: "WhiteSur-dark";
     show-icons: true;
     terminal: "xfce4-terminal";
     drun-display-format: "{name}";
@@ -19,17 +19,17 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg-col:             rgba(30, 30, 46, 0.85);
+    bg-col:             rgba(30, 30, 46, 0.90);
     bg-col-input:       rgba(49, 50, 68, 0.65);
-    border-col:         rgba(203, 166, 247, 0.35);
-    selected-col:       rgba(69, 71, 90, 0.70);
+    border-col:         rgba(255, 255, 255, 0.10);
+    selected-col:       rgba(255, 255, 255, 0.08);
     blue:               #89b4fa;
     mauve:              #cba6f7;
     fg-col:             #cdd6f4;
     fg-muted:           #6c7086;
-    fg-subtext:         #a6adc8;
+    fg-subtext:         #bac2de;
 
-    font:               "Inter 11";
+    font:               "Inter 10";
 }
 
 window {
@@ -38,9 +38,9 @@ window {
     text-color:         @fg-col;
     border:             1px solid;
     border-color:       @border-col;
-    border-radius:      16px;
-    width:              520px;
-    padding:            14px;
+    border-radius:      12px;
+    width:              460px;
+    padding:            6px;
     location:           center;
     anchor:             center;
 }
@@ -48,21 +48,22 @@ window {
 mainbox {
     background-color:   transparent;
     children:           [ inputbar, listview ];
-    spacing:            10px;
+    spacing:            6px;
 }
 
 inputbar {
     background-color:   @bg-col-input;
-    border-radius:      10px;
-    padding:            8px 12px;
+    border-radius:      6px;
+    padding:            6px 10px;
     children:           [ prompt, entry ];
-    spacing:            10px;
+    spacing:            8px;
 }
 
 prompt {
     background-color:   transparent;
     text-color:         @blue;
-    font:               "JetBrainsMono Nerd Font 13";
+    font:               "JetBrainsMono Nerd Font Propo 11";
+    padding:            0 2px 0 0;
     vertical-align:     0.5;
 }
 
@@ -72,13 +73,14 @@ entry {
     placeholder:        "Search applications...";
     placeholder-color:  @fg-muted;
     vertical-align:     0.5;
+    font:               "Inter 10";
 }
 
 listview {
     background-color:   transparent;
     columns:            1;
     lines:              6;
-    spacing:            4px;
+    spacing:            2px;
     cycle:              true;
     dynamic:            true;
     scrollbar:          false;
@@ -87,17 +89,17 @@ listview {
 
 element {
     background-color:   transparent;
-    text-color:         @fg-subtext;
-    border-radius:      8px;
-    padding:            8px 12px;
-    spacing:            12px;
+    text-color:         @fg-col;
+    border-radius:      6px;
+    padding:            4px 8px;
+    spacing:            8px;
     orientation:        horizontal;
     children:           [ element-icon, element-text ];
 }
 
 element-icon {
     background-color:   transparent;
-    size:               32px;
+    size:               20px;
     vertical-align:     0.5;
 }
 
@@ -105,7 +107,7 @@ element-text {
     background-color:   transparent;
     text-color:         inherit;
     vertical-align:     0.5;
-    font:               "Inter Medium 11";
+    font:               "Inter 10";
 }
 
 element selected {
@@ -118,8 +120,8 @@ element selected element-text {
 }
 
 error-message {
-    padding:            15px;
-    border-radius:      10px;
+    padding:            10px;
+    border-radius:      6px;
     background-color:   @bg-col;
     text-color:         #f38ba8;
 }

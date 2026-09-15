@@ -19,7 +19,7 @@
                                             "modules-right": [
                                                 "cpu",
                                                 "memory",
-                                                "network",
+                                                /*"network",*/
                                                 /*"custom/media",*/
                                                 "custom/language",
                                                 "pulseaudio",
@@ -43,8 +43,8 @@
     // Barra de tareas / aplicaciones abiertas
     "wlr/taskbar": {
         "format": "{icon}",
-            "icon-size": 15,
-                "icon-theme": "Tela-circle-dark",
+            "icon-size": 18,
+                "icon-theme": "WhiteSur-dark",
                     "tooltip-format": "{title}",
                         "on-click": "activate",
                             "on-click-middle": "close",
@@ -66,66 +66,98 @@
                 "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
-    // Estadísticas del sistema estilo pills (JetBrains Mono)
+    // CPU Ultra-Minimalista (Solo icono con estados y tooltip completo)
     "cpu": {
-        "format": "CPU {usage}%",
-            "tooltip": true,
-                "interval": 2
+        "format": "",
+            "interval": 2,
+                "states": {
+            "warning": 70,
+                "critical": 90
+        },
+        "tooltip": true,
+            "tooltip-format": "CPU: {usage}%\nFrecuencia: {max_frequency}GHz",
+                "on-click": "xfce4-terminal -e btop"
     },
 
+    // RAM Ultra-Minimalista (Solo icono con estados y desglose completo en tooltip)
     "memory": {
-        "format": "RAM {used:0.1f}GB/{total:0.1f}GB",
-            "tooltip": true,
-                "interval": 2
+        "format": "󰍛",
+            "interval": 2,
+                "states": {
+            "warning": 80,
+                "critical": 90
+        },
+        "tooltip": true,
+            "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\nSwap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB ({swapPercentage}%)",
+                "on-click": "xfce4-terminal -e btop"
     },
 
+    // Red Ultra-Minimalista (Icono dinámico cable/wifi/desconectado con info IP/velocidad)
     "network": {
-        "format-wifi": "NET {signalStrength}%",
-            "format-ethernet": "NET 100%",
-                "format-disconnected": "NET 󰖪",
-                    "tooltip-format": "{ifname} via {gwaddr}"
+        "format-ethernet": "󰈀",
+            "format-wifi": "{icon}",
+                "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+                    "format-linked": "󰈁",
+                        "format-disconnected": "󰤭",
+                            "tooltip-format": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}\n󰁅 {bandwidthDownBytes}  󰁝 {bandwidthUpBytes}",
+                                "tooltip-format-wifi": "Wi-Fi: {essid} ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n󰁅 {bandwidthDownBytes}  󰁝 {bandwidthUpBytes}",
+                                    "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}\n󰁅 {bandwidthDownBytes}  󰁝 {bandwidthUpBytes}",
+                                        "tooltip-format-disconnected": "Red desconectada",
+                                            "interval": 2,
+                                                "on-click": "nm-connection-editor"
     },
 
     "custom/language": {
         "exec": "python3 ~/.config/hypr/get_layout.py",
             "interval": 1,
                 "format": "{}",
-                    "on-click": "python3 ~/.config/hypr/switch_layout.py",
-                        "signal": 1
+                    "return-type": "json",
+                        "on-click": "python3 ~/.config/hypr/switch_layout.py",
+                            "signal": 1,
+                                "tooltip": true
     },
 
     "pulseaudio": {
-        "format": "VOL {volume}%",
-            "format-muted": "VOL 󰝟",
-                "on-click": "pavucontrol"
+        "format": "{icon}",
+            "format-muted": "󰝟",
+                "format-icons": {
+            "default": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"]
+        },
+        "on-click": "pavucontrol",
+            "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+                "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+                    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+                        "tooltip": true,
+                            "tooltip-format": "Volumen: {volume}%",
+                                "tooltip-format-muted": "Silenciado ({volume}%)"
     },
 
     "custom/microphone": {
         "format": "{}",
-        "return-type": "json",
-        "exec": "bash ~/.config/waybar/mic.sh",
-        "interval": 1,
-        "signal": 11,
-        "on-click": "bash ~/.config/hypr/toggle_mic.sh; pkill -RTMIN+11 waybar",
-        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+; pkill -RTMIN+11 waybar",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-; pkill -RTMIN+11 waybar",
-        "tooltip": true
+            "return-type": "json",
+                "exec": "bash ~/.config/waybar/mic.sh",
+                    "interval": 1,
+                        "signal": 11,
+                            "on-click-right": "bash ~/.config/hypr/toggle_mic.sh; pkill -RTMIN+11 waybar",
+                                "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+; pkill -RTMIN+11 waybar",
+                                    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-; pkill -RTMIN+11 waybar",
+                                        "tooltip": true
     },
 
     "battery": {
         "states": {
             "warning": 25,
-            "critical": 15
+                "critical": 15
         },
         "format": "{icon}",
-        "format-charging": "󰂄",
-        "format-plugged": "󰚥",
-        "format-full": "󰁹",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "tooltip": true,
-        "tooltip-format": "Batería: {capacity}% ({timeTo})",
-        "tooltip-format-charging": "Batería: {capacity}% (Cargando - {timeTo})",
-        "tooltip-format-plugged": "Batería: {capacity}% (Conectado)"
+            "format-charging": "󰂄",
+                "format-plugged": "󰚥",
+                    "format-full": "󰁹",
+                        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+                            "tooltip": true,
+                                "tooltip-format": "Batería: {capacity}% ({timeTo})",
+                                    "tooltip-format-charging": "Batería: {capacity}% (Cargando - {timeTo})",
+                                        "tooltip-format-plugged": "Batería: {capacity}% (Conectado)"
     },
 
     /*"custom/media": {
