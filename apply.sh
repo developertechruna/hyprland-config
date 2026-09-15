@@ -19,6 +19,8 @@ chmod +x ~/.config/waybar/mic.sh 2>/dev/null || true
 chmod +x ~/.config/waybar/media.sh 2>/dev/null || true
 chmod +x ~/.config/waybar/vpn.sh 2>/dev/null || true
 chmod +x ~/.config/hypr/power_notify.sh 2>/dev/null || true
+chmod +x ~/.config/hypr/get_layout.py 2>/dev/null || true
+chmod +x ~/.config/hypr/switch_layout.py 2>/dev/null || true
 
 # Copiar .gtkrc-2.0 al directorio raíz de usuario para compatibilidad GTK 2
 if [ -f "config/gtk-2.0/.gtkrc-2.0" ]; then
@@ -64,6 +66,10 @@ fi
 echo "Aplicando configuración de fuentes y temas GTK vía GSettings..."
 if [ -f "$HOME/.config/hypr/set_gtk.sh" ]; then
     bash "$HOME/.config/hypr/set_gtk.sh"
+fi
+
+if command -v xfconf-query > /dev/null 2>&1; then
+    xfconf-query -c thunar -p /misc-shortcuts-icon-size -n -t string -s "THUNAR_ICON_SIZE_24" 2>/dev/null || true
 fi
 
 echo "Reiniciando rotación automática de fondos de pantalla..."
@@ -121,7 +127,7 @@ if command -v update-desktop-database > /dev/null 2>&1; then
     update-desktop-database ~/.local/share/applications 2>/dev/null || true
 fi
 
-echo "Sincronización de GTK (fuente 8pt), Waybar, Mako y MIME completados con éxito."
+echo "Sincronización de GTK (fuente 10pt, tema Sapphire), Waybar, Mako y MIME completados con éxito."
 
 
 

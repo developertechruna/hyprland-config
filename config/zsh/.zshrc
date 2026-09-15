@@ -31,8 +31,9 @@ export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 # Configuración y rutas de JDKs (Java)
 export JDK7_HOME="/home/johnny/Apps/jdks/jdk1.7.0_80"
 export JDK8_HOME="/home/johnny/Apps/jdks/jdk1.8.0_461"
-if [[ -d "$JDK8_HOME" ]]; then
-    export JAVA_HOME="$JDK8_HOME"
+# Si JAVA_HOME ya viene definido (por ejemplo por perfiles de terminal JDK 7 o JDK 8), respetarlo;
+# de lo contrario, se mantiene el JDK global del sistema (conmutables con 'jdk7', 'jdk8' o 'setjdk')
+if [[ -n "$JAVA_HOME" && -d "$JAVA_HOME/bin" ]]; then
     export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
@@ -172,6 +173,9 @@ if [[ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]
 elif [[ -f "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
     source "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
+# Atajo para aceptar autosugerencia con Ctrl + Espacio (además de la flecha derecha ->)
+bindkey '^ ' autosuggest-accept 2>/dev/null || true
+bindkey '^@' autosuggest-accept 2>/dev/null || true
 
 # zsh-history-substring-search y vinculación de flechas Arriba/Abajo
 if [[ -f "/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" ]]; then
@@ -203,11 +207,15 @@ fi
 # ---------------------------------------------------------------------
 # 8. MÓDULOS DEL ENTORNO (Prompt, Alias, Funciones)
 # ---------------------------------------------------------------------
-ZSH_CONFIG_DIR="${ZDOTDIR:-$HOME/.config/zsh}"
-
-# Fallback si se ejecuta directamente desde el repo antes de aplicar
-if [[ ! -d "$ZSH_CONFIG_DIR" && -d "$HOME/Projects/desktop/desktop-for-developer/config/zsh" ]]; then
+# Si ZDOTDIR tiene los módulos (o si no, usar ~/.config/zsh)
+if [[ -n "$ZDOTDIR" && -f "$ZDOTDIR/prompt.zsh" ]]; then
+    ZSH_CONFIG_DIR="$ZDOTDIR"
+elif [[ -f "$HOME/.config/zsh/prompt.zsh" ]]; then
+    ZSH_CONFIG_DIR="$HOME/.config/zsh"
+elif [[ -d "$HOME/Projects/desktop/desktop-for-developer/config/zsh" ]]; then
     ZSH_CONFIG_DIR="$HOME/Projects/desktop/desktop-for-developer/config/zsh"
+else
+    ZSH_CONFIG_DIR="$HOME/.config/zsh"
 fi
 
 [[ -f "$ZSH_CONFIG_DIR/prompt.zsh" ]] && source "$ZSH_CONFIG_DIR/prompt.zsh"

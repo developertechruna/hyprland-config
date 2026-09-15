@@ -1,11 +1,17 @@
 {
     "workbench.colorTheme": "Solarized Dark",
     "python.languageServer": "Default",
-    "editor.fontFamily": "'SauceCodePro Nerd Font', 'JetBrains Mono', monospace",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace",
+    "editor.fontSize": 12,
     "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "'SauceCodePro Nerd Font Mono', 'SauceCodePro Nerd Font', monospace",
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
     "terminal.integrated.fontSize": 12,
+    "markdown.preview.fontFamily": "'Inter', sans-serif",
+    "chat.fontSize": 12,
+    "chat.editor.fontSize": 12,
+    "chat.fontFamily": "'Inter', sans-serif",
+    "workbench.tree.indent": 14,
+    "workbench.tree.renderIndentGuides": "always",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {
         "zsh": {
@@ -41,7 +47,7 @@
         {
             "name": "JavaSE-1.8",
             "path": "/home/johnny/Apps/jdks/jdk1.8.0_461",
-            "default": true
+            //"default": true
         }
     ]
 }

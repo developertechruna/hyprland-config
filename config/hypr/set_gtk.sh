@@ -4,9 +4,9 @@
 FONT="Inter 10"
 FONT_BOLD="Inter SemiBold 10"
 FONT_MONO="JetBrainsMono Nerd Font 10"
-THEME="catppuccin-mocha-lavender-standard+default"
-ICONS="Tela-circle-dark"
-CURSOR="catppuccin-mocha-lavender-cursors"
+THEME="catppuccin-mocha-sapphire-standard+default"
+ICONS="WhiteSur-dark"
+CURSOR="catppuccin-mocha-sapphire-cursors"
 CURSOR_SIZE=24
 
 # Sincronización mediante GSettings para Wayland / XDG Portals / GTK 3 & 4

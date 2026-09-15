@@ -1,8 +1,8 @@
-/* Estilos compactos GTK 4 para fuente tamaño 9 y entorno minimalista */
+/* Estilos compactos GTK 4 para fuente Inter 10pt e interfaz legible */
 
 * {
-    font-family: 'SauceCodePro Nerd Font', monospace;
-    font-size: 8pt;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
 }
 
 /* Barras de cabecera compactas (headerbars) */
