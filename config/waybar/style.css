@@ -120,6 +120,7 @@ window#waybar {
 #custom-language,
 #custom-media,
 #custom-power,
+#custom-notification,
 #tray {
     padding: 2px 8px;
     margin: 0 2px;
@@ -274,6 +275,16 @@ window#waybar {
 #custom-power:hover {
     background-color: rgba(243, 139, 168, 0.25);
     color: #f38ba8;
+}
+
+#custom-notification {
+    font-size: 11.5pt;
+    color: #cba6f7;
+    transition: all 0.2s ease;
+}
+
+#custom-notification:hover {
+    color: #89b4fa;
 }
 
 #tray {

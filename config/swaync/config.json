@@ -1,0 +1,47 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "application",
+  "control-center-margin-top": 38,
+  "control-center-margin-bottom": 12,
+  "control-center-margin-right": 12,
+  "control-center-margin-left": 12,
+  "notification-2fa-album-art": true,
+  "notification-inline-replies": false,
+  "notification-icon-size": 24,
+  "notification-body-image-height": 80,
+  "notification-body-image-width": 160,
+  "timeout": 6,
+  "timeout-low": 4,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "relative-timestamps": true,
+  "control-center-width": 310,
+  "control-center-height": 500,
+  "notification-window-width": 300,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 180,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notificaciones",
+      "clear-all-button": true,
+      "button-text": "Limpiar"
+    },
+    "dnd": {
+      "text": "No molestar"
+    }
+  }
+}

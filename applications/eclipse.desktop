@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Eclipse IDE
 Comment=Eclipse Integrated Development Environment
-Exec=env GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 SWT_GTK3=1 /home/developer/Apps/eclipse/eclipse %u
+Exec=/home/developer/.local/bin/eclipse %u
 Icon=/home/developer/Apps/eclipse/icon.xpm
 Terminal=false
 StartupWMClass=Eclipse

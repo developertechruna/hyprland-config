@@ -16,11 +16,21 @@ file_export_version=3.0
 /instance/org.eclipse.ui.editors/spacesForTabs=true
 /instance/org.eclipse.ui.editors/tabWidth=4
 
-# --- Typography (JetBrains Mono 9pt) ---
+# --- Typography (JetBrains Mono 9pt & Inter 9pt) ---
 /instance/org.eclipse.ui.workbench/org.eclipse.jface.textfont=1|JetBrains Mono|9.0|0|GTK|1|;
 /instance/org.eclipse.ui.workbench/org.eclipse.ui.workbench.texteditor.blockSelectionModeFont=1|JetBrains Mono|9.0|0|GTK|1|;
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.editors.textfont=1|JetBrains Mono|9.0|0|GTK|1|;
 /instance/org.eclipse.debug.ui/org.eclipse.debug.ui.consoleFont=1|JetBrains Mono|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.jface.dialogfont=1|Inter|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.jface.bannerfont=1|Inter|9.0|1|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.jface.headerfont=1|Inter|9.0|1|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.ui.workbench.TAB_TEXT_FONT=1|Inter|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.egit.ui.CommitGraphNormalFont=1|Inter|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.egit.ui.CommitGraphHighlightFont=1|Inter|9.0|1|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.egit.ui.CommitMessageFont=1|JetBrains Mono|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.egit.ui.CommitMessageEditorFont=1|JetBrains Mono|9.0|0|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.egit.ui.DiffHeadlineFont=1|JetBrains Mono|9.0|1|GTK|1|;
+/instance/org.eclipse.ui.workbench/org.eclipse.egit.ui.UncommittedChangeFont=1|Inter|9.0|2|GTK|1|;
 
 # --- Encoding & Line Endings (UTF-8 & Unix LF) ---
 /instance/org.eclipse.core.resources/encoding=UTF-8

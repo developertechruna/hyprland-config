@@ -1,0 +1,304 @@
+/* ==========================================
+   Tema Dark Slate Slim / Compact para SwayNotificationCenter
+   Estilizado delgado y fino inspirado en menús contextuales GTK
+   Ubicación original destino: ~/.config/swaync/style.css
+   ========================================== */
+
+* {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 9pt;
+    outline: none;
+}
+
+/* ==========================================
+   Contenedor Principal (Ventana Flotante Delgada)
+   ========================================== */
+.control-center {
+    background: rgba(24, 25, 38, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    padding: 8px 6px;
+    color: #cdd6f4;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+/* ==========================================
+   Widget: Cabecera ("Notificaciones" y "Limpiar")
+   ========================================== */
+.widget-title {
+    margin: 2px 4px 6px 4px;
+    padding: 0 2px;
+}
+
+.widget-title label {
+    color: #cdd6f4;
+    font-weight: 600;
+    font-size: 9.5pt;
+    letter-spacing: 0.1px;
+}
+
+.widget-title button {
+    background: rgba(255, 255, 255, 0.06);
+    color: #a6adc8;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-size: 7.5pt;
+    font-weight: 500;
+    min-height: 18px;
+    transition: all 0.15s ease-in-out;
+}
+
+.widget-title button:hover {
+    background: rgba(243, 139, 168, 0.2);
+    color: #f38ba8;
+    border-color: rgba(243, 139, 168, 0.35);
+}
+
+/* ==========================================
+   Widget: Modo "No Molestar" (DND)
+   ========================================== */
+.widget-dnd {
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    margin: 2px 0 6px 0;
+    padding: 4px 6px 6px 6px;
+}
+
+.widget-dnd label {
+    color: #a6adc8;
+    font-size: 8.5pt;
+    font-weight: 500;
+}
+
+.widget-dnd switch {
+    background: #313244;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    min-width: 28px;
+    min-height: 16px;
+    transition: all 0.15s ease;
+}
+
+.widget-dnd switch:checked {
+    background: #89b4fa;
+    border-color: #89b4fa;
+}
+
+.widget-dnd switch slider {
+    background: #cdd6f4;
+    border-radius: 10px;
+    min-width: 12px;
+    min-height: 12px;
+}
+
+/* ==========================================
+   Grupos de Notificaciones
+   ========================================== */
+.notification-group {
+    background: transparent;
+    border: none;
+    margin: 2px 0;
+}
+
+.notification-group-headers {
+    color: #cdd6f4;
+    font-size: 8.5pt;
+    font-weight: 600;
+    padding: 2px 4px;
+    margin: 1px 0;
+}
+
+.notification-group-headers .notification-group-icon {
+    color: #89b4fa;
+    margin-right: 4px;
+    -gtk-icon-size: 14px;
+}
+
+.notification-group-buttons {
+    margin: 1px 2px;
+}
+
+.notification-group-buttons > button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    color: #a6adc8;
+    padding: 1px 4px;
+    font-size: 7.5pt;
+    transition: all 0.15s ease;
+}
+
+.notification-group-buttons > button:hover {
+    background: rgba(243, 139, 168, 0.15);
+    color: #f38ba8;
+}
+
+/* ==========================================
+   Tarjetas de Notificación (Delgadas y Compactas)
+   ========================================== */
+.notification-row {
+    outline: none;
+    margin: 2px 0;
+    transition: all 0.15s ease;
+}
+
+.notification {
+    background: rgba(36, 39, 58, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 6px 8px;
+    margin: 2px 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.15s ease-in-out;
+}
+
+.notification:hover {
+    background: rgba(45, 49, 72, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notificaciones emergentes temporales flotantes */
+.floating-notifications {
+    background: transparent;
+}
+
+.floating-notifications .notification {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Indicadores sutiles de prioridad */
+.notification.low {
+    border-left: 2px solid rgba(137, 180, 250, 0.4);
+}
+
+.notification.normal {
+    border-left: 2px solid rgba(180, 190, 254, 0.4);
+}
+
+.notification.critical {
+    border-left: 2px solid #f38ba8;
+    background: rgba(45, 49, 72, 0.9);
+}
+
+/* ==========================================
+   Contenido y Tipografía de Notificaciones
+   ========================================== */
+.notification-content {
+    background: transparent;
+    padding: 0;
+}
+
+.summary {
+    font-weight: 600;
+    font-size: 8.5pt;
+    color: #cdd6f4;
+    margin-bottom: 1px;
+}
+
+.time {
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: #6c7086;
+    margin-right: 14px;
+}
+
+.body {
+    font-size: 8pt;
+    color: #a6adc8;
+    margin-top: 2px;
+    line-height: 1.25;
+}
+
+/* Icono de aplicación en notificación */
+.notification-icon {
+    border-radius: 5px;
+    margin-right: 6px;
+    -gtk-icon-size: 20px;
+}
+
+/* Botón cerrar notificación individual */
+.close-button {
+    background: transparent;
+    border: none;
+    color: #6c7086;
+    border-radius: 3px;
+    padding: 1px 3px;
+    margin: 1px;
+    font-size: 7.5pt;
+    transition: all 0.15s ease;
+}
+
+.close-button:hover {
+    background: rgba(243, 139, 168, 0.15);
+    color: #f38ba8;
+}
+
+/* Botones de acción dentro de la notificación */
+.notification-action {
+    background: rgba(255, 255, 255, 0.05);
+    color: #cdd6f4;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: 4px 3px 0 0;
+    font-size: 7.5pt;
+    transition: all 0.15s ease;
+}
+
+.notification-action:hover {
+    background: rgba(137, 180, 250, 0.15);
+    border-color: rgba(137, 180, 250, 0.25);
+    color: #ffffff;
+}
+
+/* ==========================================
+   Barra de Desplazamiento Ultra-Fina (3px)
+   ========================================== */
+scrollbar,
+scrollbar.vertical,
+.control-center scrollbar,
+.control-center scrollbar.vertical {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    min-width: 3px;
+    -gtk-indicator-width: 3px;
+}
+
+scrollbar trough,
+scrollbar.vertical trough,
+.control-center scrollbar trough {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    min-width: 3px;
+}
+
+scrollbar slider,
+scrollbar.vertical slider,
+.control-center scrollbar slider {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    box-shadow: none;
+    border-radius: 2px;
+    min-width: 3px;
+    min-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+scrollbar slider:hover,
+.control-center scrollbar slider:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
