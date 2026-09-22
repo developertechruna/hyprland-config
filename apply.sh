@@ -72,6 +72,47 @@ if command -v xfconf-query > /dev/null 2>&1; then
     xfconf-query -c thunar -p /misc-shortcuts-icon-size -n -t string -s "THUNAR_ICON_SIZE_24" 2>/dev/null || true
 fi
 
+# Sincronizar fuentes y preferencias visuales compactas en workspaces de Eclipse
+if [ -d "$HOME/workspace" ]; then
+    echo "Sincronizando preferencias visuales y fuentes compactas en workspaces de Eclipse..."
+    for pref_file in "$HOME"/workspace/*/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs; do
+        if [ -f "$pref_file" ]; then
+            # Dialog, views, tabs y EGit compact fonts (9.0pt)
+            sed -i '/org\.eclipse\.jface\.dialogfont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.jface\.bannerfont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.jface\.headerfont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.ui\.workbench\.TAB_TEXT_FONT=/d' "$pref_file"
+            sed -i '/org\.eclipse\.egit\.ui\.CommitGraphNormalFont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.egit\.ui\.CommitGraphHighlightFont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.egit\.ui\.CommitMessageFont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.egit\.ui\.CommitMessageEditorFont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.egit\.ui\.DiffHeadlineFont=/d' "$pref_file"
+            sed -i '/org\.eclipse\.egit\.ui\.UncommittedChangeFont=/d' "$pref_file"
+
+            cat << 'EOF_PREFS' >> "$pref_file"
+org.eclipse.jface.dialogfont=1|Inter|9.0|0|GTK|1|;
+org.eclipse.jface.bannerfont=1|Inter|9.0|1|GTK|1|;
+org.eclipse.jface.headerfont=1|Inter|9.0|1|GTK|1|;
+org.eclipse.ui.workbench.TAB_TEXT_FONT=1|Inter|9.0|0|GTK|1|;
+org.eclipse.egit.ui.CommitGraphNormalFont=1|Inter|9.0|0|GTK|1|;
+org.eclipse.egit.ui.CommitGraphHighlightFont=1|Inter|9.0|1|GTK|1|;
+org.eclipse.egit.ui.CommitMessageFont=1|JetBrains Mono|9.0|0|GTK|1|;
+org.eclipse.egit.ui.CommitMessageEditorFont=1|JetBrains Mono|9.0|0|GTK|1|;
+org.eclipse.egit.ui.DiffHeadlineFont=1|JetBrains Mono|9.0|1|GTK|1|;
+org.eclipse.egit.ui.UncommittedChangeFont=1|Inter|9.0|2|GTK|1|;
+EOF_PREFS
+        fi
+    done
+fi
+
+# Sincronizar estilos de tema oscuro (Catppuccin Sapphire / botones / cabeceras compactas) en Eclipse IDE
+ECLIPSE_THEMES_DIR=$(find /home/johnny/Apps/eclipse/plugins -maxdepth 1 -type d -name "org.eclipse.ui.themes_*" 2>/dev/null | head -n 1)
+if [ -n "$ECLIPSE_THEMES_DIR" ] && [ -d "$ECLIPSE_THEMES_DIR/css" ]; then
+    echo "Sincronizando tema oscuro personalizado para Eclipse en $ECLIPSE_THEMES_DIR/css..."
+    [ -f "config/eclipse/e4-dark_linux.css" ] && cp -v config/eclipse/e4-dark_linux.css "$ECLIPSE_THEMES_DIR/css/e4-dark_linux.css" 2>/dev/null || true
+    [ -f "config/eclipse/e4-dark_tabstyle.css" ] && cp -v config/eclipse/e4-dark_tabstyle.css "$ECLIPSE_THEMES_DIR/css/dark/e4-dark_tabstyle.css" 2>/dev/null || true
+fi
+
 echo "Reiniciando rotación automática de fondos de pantalla..."
 pkill -f "wallpaper_loop.sh" > /dev/null 2>&1
 systemctl --user stop wallpaper-loop.service > /dev/null 2>&1 || true
@@ -98,10 +139,26 @@ else
     setsid waybar > /dev/null 2>&1 &
 fi
 
-# Recargar Mako para aplicar los cambios de estilo en las notificaciones
-if pgrep -x "mako" > /dev/null; then
-    echo "Recargando Mako para aplicar el nuevo tema..."
-    makoctl reload
+# Gestionar daemon de notificaciones (SwayNC / Mako)
+if command -v swaync > /dev/null 2>&1; then
+    # Detener mako si está corriendo para evitar colisiones en D-Bus
+    if pgrep -x "mako" > /dev/null; then
+        killall mako 2>/dev/null || true
+    fi
+
+    if pgrep -x "swaync" > /dev/null; then
+        echo "Recargando configuración y estilos de SwayNC..."
+        swaync-client -R -rs > /dev/null 2>&1 || true
+    else
+        echo "Iniciando SwayNC en segundo plano..."
+        setsid swaync > /dev/null 2>&1 &
+    fi
+else
+    echo "Aviso: 'swaync' no está instalado. Para activar el centro de notificaciones ejecuta: sudo pacman -S --needed swaync"
+    if pgrep -x "mako" > /dev/null; then
+        echo "Recargando Mako temporalmente..."
+        makoctl reload 2>/dev/null || true
+    fi
 fi
 
 # Reiniciar hypridle para aplicar los tiempos de inactividad y bloqueo actualizados

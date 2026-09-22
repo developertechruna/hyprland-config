@@ -3,7 +3,7 @@
 export GDK_BACKEND=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SWT_GTK3=1
-export GTK_THEME="Catppuccin-Mocha-Standard-Lavender-Dark"
+export GTK_THEME="catppuccin-mocha-sapphire-standard+default"
 
 ECLIPSE_BIN="/home/johnny/Apps/eclipse/eclipse"
 

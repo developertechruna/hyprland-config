@@ -19,7 +19,7 @@ hyprlock                      # Bloqueador de pantalla elegante nativo de Hyprla
 hypridle                      # Gestor de inactividad para bloqueo automático y DPMS
 waybar                        # Barra de estado superior
 xfce4-terminal                # Emulador de terminal ligero de XFCE (Fuente 9.0)
-mako                          # Demonio de notificaciones ligero
+swaync                        # Centro de notificaciones e histórico (SwayNC)
 pipewire                      # Servidor de audio moderno
 pipewire-alsa                 # Compatibilidad ALSA para PipeWire
 pipewire-pulse                # Reemplazo de PulseAudio
@@ -91,7 +91,7 @@ fzf                           # Buscador interactivo por línea de comandos (opc
 # cd yay && makepkg -si
 #
 # Paso 2: Instalar paquetes oficiales
-# sudo pacman -S hyprland hyprlock hypridle waybar xfce4-terminal mako pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy flameshot btop network-manager-applet pavucontrol blueman ttf-sourcecodepro-nerd ttf-jetbrains-mono otf-fira-code ttf-font-awesome noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
+# sudo pacman -S hyprland hyprlock hypridle waybar xfce4-terminal swaync pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy flameshot btop network-manager-applet pavucontrol blueman ttf-sourcecodepro-nerd ttf-jetbrains-mono otf-fira-code ttf-font-awesome noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
 #
 # Paso 3: Instalar paquetes desde AUR
 # yay -S awww nwg-drawer nwg-dock-hyprland
