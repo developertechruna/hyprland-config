@@ -1,0 +1,105 @@
+/* ==============================================================================
+ * Estilos personalizados GTK3 para LightDM GTK Greeter
+ * Tema: Catppuccin Mocha con acento Sapphire (#74c7ec)
+ * Ubicación opcional: /etc/gtk-3.0/gtk.css (o ~lightdm/.config/gtk-3.0/gtk.css)
+ * ============================================================================== */
+
+/* Ventana central flotante de login */
+#login_window {
+    background-color: rgba(30, 30, 46, 0.90); /* Catppuccin Base */
+    border: 1.5px solid rgba(116, 199, 236, 0.4); /* Sapphire suave */
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* Barra superior de panel */
+#panel_window {
+    background-color: rgba(24, 24, 37, 0.85); /* Catppuccin Mantle translúcido */
+    color: #cdd6f4;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(49, 50, 68, 0.6);
+}
+
+#panel_window menubar menuitem {
+    color: #cdd6f4;
+    padding: 4px 10px;
+}
+
+#panel_window menubar menuitem:hover {
+    background-color: rgba(49, 50, 68, 0.7);
+    color: #74c7ec;
+    border-radius: 6px;
+}
+
+/* Avatar del usuario */
+#user_image {
+    border-radius: 9999px;
+    border: 2.5px solid #74c7ec; /* Anillo Sapphire */
+    padding: 4px;
+    background-color: #181825;
+    margin-bottom: 8px;
+}
+
+/* Campos de entrada (Usuario / Contraseña) */
+#prompt_entry,
+entry {
+    background-color: #313244; /* Surface0 */
+    color: #cdd6f4;
+    border: 1.5px solid #45475a;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 11pt;
+    transition: all 200ms ease;
+}
+
+#prompt_entry:focus,
+entry:focus {
+    background-color: #1e1e2e;
+    border-color: #74c7ec; /* Sapphire en foco */
+    box-shadow: 0 0 0 2px rgba(116, 199, 236, 0.25);
+}
+
+/* Botón de Inicio de Sesión */
+#login_button {
+    background-color: #74c7ec; /* Sapphire */
+    color: #11111b; /* Catppuccin Crust oscuro para alto contraste */
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 7px 18px;
+    border: none;
+    transition: all 150ms ease;
+}
+
+#login_button:hover {
+    background-color: #89dceb; /* Sky */
+    color: #11111b;
+}
+
+#login_button:active {
+    background-color: #b4befe; /* Lavender */
+}
+
+/* Botón de Cancelar */
+#cancel_button {
+    background-color: #313244;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 7px 16px;
+    border: 1px solid #45475a;
+    transition: all 150ms ease;
+}
+
+#cancel_button:hover {
+    background-color: #45475a;
+    color: #f38ba8; /* Red en hover para cancelar */
+}
+
+/* Mensajes de error PAM o alerta */
+#greeter_infobar {
+    background-color: rgba(243, 139, 168, 0.15); /* Red translúcido */
+    color: #f38ba8;
+    border: 1px solid #f38ba8;
+    border-radius: 8px;
+    margin-top: 10px;
+}
