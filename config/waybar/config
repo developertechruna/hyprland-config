@@ -19,7 +19,8 @@
                                             "modules-right": [
                                                 "cpu",
                                                 "memory",
-                                                /*"network",*/
+                                                "network",
+                                                "custom/vpn",
                                                 /*"custom/media",*/
                                                 "custom/language",
                                                 "pulseaudio",
@@ -105,7 +106,19 @@
                                     "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}\n󰁅 {bandwidthDownBytes}  󰁝 {bandwidthUpBytes}",
                                         "tooltip-format-disconnected": "Red desconectada",
                                             "interval": 2,
-                                                "on-click": "nm-connection-editor"
+                                                "on-click": "bash ~/.config/rofi/scripts/network-menu.sh",
+                                                "on-click-right": "nm-connection-editor"
+    },
+
+    "custom/vpn": {
+        "format": "{}",
+        "exec": "bash ~/.config/waybar/vpn.sh",
+        "return-type": "json",
+        "interval": 2,
+        "signal": 8,
+        "on-click": "bash ~/.config/waybar/vpn.sh menu",
+        "on-click-right": "nm-connection-editor",
+        "tooltip": true
     },
 
     "custom/language": {

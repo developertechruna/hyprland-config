@@ -10,6 +10,7 @@ cp -rv config/* ~/.config/
 # Asegurar que los scripts tengan permisos de ejecución en el destino
 chmod +x ~/.config/rofi/favorites.sh
 chmod +x ~/.config/rofi/confirm.sh
+chmod +x ~/.config/rofi/scripts/*.sh 2>/dev/null || true
 chmod +x ~/.config/hypr/toggle_mic.sh
 chmod +x ~/.config/hypr/launch_docks.py
 chmod +x ~/.config/hypr/toggle_dock.py
