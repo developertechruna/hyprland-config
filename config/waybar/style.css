@@ -113,6 +113,7 @@ window#waybar {
 #cpu,
 #memory,
 #network,
+#custom-vpn,
 #pulseaudio,
 #pulseaudio.microphone,
 #custom-microphone,
@@ -171,9 +172,25 @@ window#waybar {
 
 #cpu:hover,
 #memory:hover,
-#network:hover {
+#network:hover,
+#custom-vpn:hover {
     color: #89b4fa;
 }
+
+#custom-vpn {
+    color: #6c7086;
+    transition: all 0.2s ease;
+}
+
+#custom-vpn.connected {
+    color: #a6e3a1;
+    font-weight: bold;
+}
+
+#custom-vpn.disconnected {
+    color: #6c7086;
+}
+
 
 #pulseaudio {
     font-size: 11.5pt;
