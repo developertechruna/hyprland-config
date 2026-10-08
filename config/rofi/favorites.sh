@@ -8,6 +8,7 @@ favorites=(
   ["Brave"]="brave --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-webrtc-pipewire-capturer"
   ["Antigravity IDE"]="antigravity-ide"
   ["Eclipse"]="~/.local/bin/eclipse"
+  ["Música (Cantata)"]="cantata"
   ["Btop"]="xfce4-terminal -e btop"
   ["Terminal"]="xfce4-terminal"
   ["Thunar"]="thunar"
@@ -19,7 +20,7 @@ declare -A all_apps
 
 # Añadir favoritos primero con un prefijo de estrella para que resalten y se mantenga el orden
 fav_list=""
-for name in "Firefox" "Brave" "Antigravity IDE" "Eclipse" "Btop" "Terminal" "Thunar" "Kill Window (xkill)"; do
+for name in "Firefox" "Brave" "Antigravity IDE" "Eclipse" "Música (Cantata)" "Btop" "Terminal" "Thunar" "Kill Window (xkill)"; do
     display_name="  $name"
     all_apps["$display_name"]="${favorites[$name]}"
     fav_list+="$display_name"$'\n'

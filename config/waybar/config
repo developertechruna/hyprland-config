@@ -160,8 +160,8 @@
 
     "battery": {
         "states": {
-            "warning": 25,
-                "critical": 15
+            "warning": 20,
+                "critical": 10
         },
         "format": "{icon}",
             "format-charging": "󰂄",

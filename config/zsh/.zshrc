@@ -23,6 +23,10 @@ export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORM="wayland;xcb"
 
+# Servidor MPD local (Cantata / mpc / ncmpcpp)
+export MPD_HOST="127.0.0.1"
+export MPD_PORT="6600"
+
 # Expansión de PATH para binarios locales y herramientas de desarrollo
 export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
