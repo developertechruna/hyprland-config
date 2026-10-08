@@ -23,6 +23,17 @@ chmod +x ~/.config/hypr/power_notify.sh 2>/dev/null || true
 chmod +x ~/.config/hypr/get_layout.py 2>/dev/null || true
 chmod +x ~/.config/hypr/switch_layout.py 2>/dev/null || true
 
+# Asegurar permisos seguros para configuración de Cantata (0600)
+if [ -f "$HOME/.config/cantata/cantata.conf" ]; then
+    chmod 600 "$HOME/.config/cantata/cantata.conf"
+fi
+
+# Asegurar directorios requeridos para MPD local y activar servicio de usuario
+mkdir -p ~/.config/mpd/playlists
+if command -v mpd >/dev/null 2>&1; then
+    systemctl --user enable --now mpd.service >/dev/null 2>&1 || true
+fi
+
 # Copiar .gtkrc-2.0 al directorio raíz de usuario para compatibilidad GTK 2
 if [ -f "config/gtk-2.0/.gtkrc-2.0" ]; then
     cp -v config/gtk-2.0/.gtkrc-2.0 ~/.gtkrc-2.0

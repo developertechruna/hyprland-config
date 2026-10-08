@@ -250,6 +250,21 @@ window#waybar {
     color: #f38ba8;
 }
 
+@keyframes battery-blink {
+    to {
+        opacity: 0.35;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: battery-blink;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 #battery.charging {
     color: #94e2d5;
 }

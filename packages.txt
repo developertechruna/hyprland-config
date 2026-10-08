@@ -40,10 +40,14 @@ slurp                         # Seleccionar geometría de pantalla (para grim)
 wl-clipboard                  # Gestor del portapapeles nativo de Wayland
 swappy                        # Editor gráfico rápido de capturas de pantalla
 flameshot                     # Herramienta interactiva de capturas de pantalla
+vokoscreen                    # Grabador de pantalla y webcam para Wayland y PipeWire (VokoscreenNG)
 btop                          # Monitor de recursos elegante para terminal
 network-manager-applet        # Icono de red (nm-applet) en la bandeja de sistema
 pavucontrol                   # Interfaz gráfica de control de volumen
 blueman                       # Gestor y applet de Bluetooth (blueman-applet)
+mpd                           # Servidor de música local (Music Player Daemon) con PipeWire
+cantata                       # Cliente gráfico de MPD (Music Player Daemon)
+mpc                           # Cliente CLI para MPD (Music Player Client)
 ttf-sourcecodepro-nerd        # Fuente SauceCodePro Nerd Font (Tipografía principal aplicada en Waybar, Rofi, Mako, GTK y Terminal)
 ttf-jetbrains-mono            # Fuente JetBrains Mono (Alternativa para desarrollo)
 otf-fira-code                 # Fuente Fira Code (Alternativa)
@@ -91,7 +95,7 @@ fzf                           # Buscador interactivo por línea de comandos (opc
 # cd yay && makepkg -si
 #
 # Paso 2: Instalar paquetes oficiales
-# sudo pacman -S hyprland hyprlock hypridle waybar xfce4-terminal swaync pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy flameshot btop network-manager-applet pavucontrol blueman ttf-sourcecodepro-nerd ttf-jetbrains-mono otf-fira-code ttf-font-awesome noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
+# sudo pacman -S hyprland hyprlock hypridle waybar xfce4-terminal swaync pipewire pipewire-alsa pipewire-pulse wireplumber polkit-gnome xdg-desktop-portal-hyprland qt5-wayland qt6-wayland brightnessctl pamixer playerctl grim slurp wl-clipboard swappy flameshot btop network-manager-applet pavucontrol blueman mpd cantata mpc ttf-sourcecodepro-nerd ttf-jetbrains-mono otf-fira-code ttf-font-awesome noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols git lazygit yazi neovim eclipse-java rofi-wayland cliphist wlogout
 #
 # Paso 3: Instalar paquetes desde AUR
 # yay -S awww nwg-drawer nwg-dock-hyprland
