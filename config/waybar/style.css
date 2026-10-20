@@ -121,6 +121,7 @@ window#waybar {
 #custom-language,
 #custom-media,
 #custom-power,
+#idle_inhibitor,
 #custom-notification,
 #tray {
     padding: 2px 8px;
@@ -307,6 +308,23 @@ window#waybar {
 #custom-power:hover {
     background-color: rgba(243, 139, 168, 0.25);
     color: #f38ba8;
+}
+
+#idle_inhibitor {
+    font-size: 11pt;
+    color: #6c7086;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#idle_inhibitor:hover {
+    color: #cdd6f4;
+}
+
+#idle_inhibitor.activated {
+    color: #fab387;
+    background-color: rgba(250, 179, 135, 0.20);
 }
 
 #custom-notification {
