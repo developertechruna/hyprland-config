@@ -26,6 +26,7 @@
                                                 "pulseaudio",
                                                 "custom/microphone",
                                                 "battery",
+                                                "idle_inhibitor",
                                                 "custom/notification",
                                                 "tray",
                                                 "custom/power"
@@ -209,6 +210,17 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        },
+        "tooltip": true,
+        "tooltip-format-activated": "Modo Café activo: Bloqueo de pantalla e inactividad suspendidos",
+        "tooltip-format-deactivated": "Modo normal: Inactividad activa (bloqueo/DPMS activo, sin suspensión)"
     },
 
     "custom/power": {
