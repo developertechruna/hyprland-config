@@ -196,7 +196,13 @@ if command -v update-desktop-database > /dev/null 2>&1; then
     update-desktop-database ~/.local/share/applications 2>/dev/null || true
 fi
 
-echo "Sincronización de GTK (fuente 10pt, tema Sapphire), Waybar, Mako y MIME completados con éxito."
+# Recargar configuración de Hyprland si el compositor está en ejecución
+if command -v hyprctl > /dev/null 2>&1 && [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+    echo "Recargando configuración de Hyprland (hyprctl reload)..."
+    hyprctl reload > /dev/null 2>&1 || true
+fi
+
+echo "Sincronización de Hyprland, GTK, Waybar, SwayNC y MIME completada con éxito."
 
 
 
