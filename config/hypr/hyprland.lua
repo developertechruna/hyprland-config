@@ -85,7 +85,7 @@ hl.config({
     },
 
     cursor = {
-        no_hardware_cursors = 2,
+        no_hardware_cursors = true,
         sync_gsettings_theme = true,
         enable_hyprcursor = true,
     },
