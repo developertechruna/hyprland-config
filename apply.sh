@@ -202,7 +202,13 @@ if command -v hyprctl > /dev/null 2>&1 && [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ];
     hyprctl reload > /dev/null 2>&1 || true
 fi
 
-echo "Sincronización de Hyprland, GTK, Waybar, SwayNC y MIME completada con éxito."
+# Reiniciar xdg-desktop-portal-hyprland para aplicar configuraciones de screencopy y puntero
+if systemctl --user is-active --quiet xdg-desktop-portal-hyprland.service; then
+    echo "Reiniciando xdg-desktop-portal-hyprland para aplicar configuración de captura de pantalla y cursor..."
+    systemctl --user restart xdg-desktop-portal-hyprland.service > /dev/null 2>&1 || true
+fi
+
+echo "Sincronización de Hyprland, Portales, GTK, Waybar, SwayNC y MIME completada con éxito."
 
 
 
