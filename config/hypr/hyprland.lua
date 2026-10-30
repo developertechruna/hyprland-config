@@ -65,9 +65,14 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("~/.config/hypr/drag_edge.py")
     hl.exec_cmd("python3 ~/.config/hypr/launch_docks.py")
     hl.exec_cmd("bash ~/.config/hypr/set_gtk.sh")
-    hl.exec_cmd("flameshot &")
     hl.exec_cmd("bash ~/.config/hypr/power_notify.sh")
+
+    -- Carga de plugins gestionados por hyprpm (HyprCapture)
+    hl.exec_cmd("hyprpm reload -n")
 end)
+
+-- Permiso para que hyprpm cargue plugins (sistema de permisos de Hyprland)
+hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
 -----------------------
 ---- CONFIGURACIÓN GENERAL Y ESTILO ----
@@ -82,6 +87,7 @@ hl.config({
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
         force_default_wallpaper = 0,
+        mouse_move_focuses_monitor = false,
     },
 
     cursor = {
@@ -186,9 +192,14 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exit())
 hl.bind(mainMod .. " + V",         hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + Tab",               hl.dsp.exec_cmd("rofi -show window"))
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
-hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("XDG_CURRENT_DESKTOP=sway flameshot gui"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy -t image/png'))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- Capturas de pantalla con HyprCapture (binario UI independiente)
+hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --in-place-edit-toolbar 1"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --quick"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui -m window"))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui -m fullscreen"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --record"))
 
 -- Foco entre ventanas (estilo Vim: H, J, K, L)
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -228,12 +239,64 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause || mpc toggle"), 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next || mpc next"),         { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous || mpc prev"),     { locked = true })
 
--- Gestos de touchpad para cambiar de workspace
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace",
-})
+-- Vista general de ventanas estilo Mission Control (Hymission, plugin nativo vía hyprpm)
+if hl.plugin.hymission then
+    hl.config({
+        plugin = {
+            hymission = {
+                toggle_switch_mode        = 1,
+                switch_toggle_auto_next   = 1,
+                switch_release_key        = "Super_L",
+                overview_focus_follows_mouse = 1,
+                selected_expand_scale     = 1.12,
+                show_focus_indicator      = 1,
+                close_button_enabled      = 1,
+                workspace_strip_anchor    = "left",
+                hide_bar_when_strip       = 1,
+                backdrop_blur             = 1,
+                backdrop_color            = "rgba(11111b99)",
+                focus_hover_color         = "rgba(89b4fa8c)",
+                focus_selected_color      = "rgba(74c7ecf2)",
+                stage_enabled             = 0,
+            },
+        },
+    })
+    hl.bind(mainMod .. " + Tab",          hl.plugin.hymission.toggle)
+    hl.bind(mainMod .. " + SHIFT + Tab",  function() hl.plugin.hymission.toggle("reverse") end)
+    hl.bind(mainMod .. " + CTRL + Tab",   function() hl.plugin.hymission.toggle("forceall") end)
+    hl.bind(mainMod .. " + comma",        function() hl.plugin.hymission.stage_toggle() end)
+
+    hl.plugin.hymission.gesture({ fingers = 3, direction = "vertical",   action = "toggle" })
+    hl.plugin.hymission.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+else
+    -- Gestos nativos de touchpad para cambiar de workspace cuando no hay overview
+    hl.gesture({
+        fingers = 3,
+        direction = "horizontal",
+        action = "workspace",
+    })
+end
+
+-- Efecto de resalte suave al recibir foco (hyprfocus)
+if hl.plugin.hyprfocus then
+    hl.config({
+        plugin = {
+            hyprfocus = {
+                enabled = true,
+                animate_floating = true,
+                animate_workspacechange = true,
+                focus_animation = "flash",
+                flash = {
+                    flash_opacity = 0.85,
+                    in_bezier = "realsmooth",
+                    in_speed = 0.5,
+                    out_bezier = "realsmooth",
+                    out_speed = 3,
+                },
+            },
+        },
+    })
+end
 
 ---------------------------------
 ---- REGLAS DE VENTANA Y CAPA ----
@@ -397,16 +460,6 @@ hl.window_rule({
     name = "terminal-opacity-kitty",
     match = { class = "^(kitty)$" },
     opacity = "0.94 0.88",
-})
-
-hl.window_rule({
-    name = "flameshot",
-    match = { class = "^([Ff]lameshot)$" },
-    float = true,
-    center = true,
-    pin = true,
-    no_anim = true,
-    stay_focused = true,
 })
 
 -- Reglas de capas (Layer Rules para Waybar, Rofi y SwayNC)

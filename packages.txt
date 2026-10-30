@@ -39,7 +39,27 @@ grim                          # Herramienta para tomar capturas de pantalla
 slurp                         # Seleccionar geometría de pantalla (para grim)
 wl-clipboard                  # Gestor del portapapeles nativo de Wayland
 swappy                        # Editor gráfico rápido de capturas de pantalla
-flameshot                     # Herramienta interactiva de capturas de pantalla
+flameshot                     # Herramienta de capturas de respaldo (si el plugin HyprCapture no está cargado)
+# --- HyprCapture (plugin nativo de capturas/grabación para Hyprland, se compila con hyprpm) ---
+hyprpm                        # Gestor de plugins de Hyprland (compila e instala HyprCapture)
+cmake                         # Sistema de construcción requerido por hyprpm/HyprCapture
+cpio                          # Requerido por hyprpm para preparar cabeceras de Hyprland
+nlohmann-json                 # Dependencia de HyprCapture (JSON)
+qt6-base                      # Qt 6 (helper gráfico de HyprCapture)
+qt6-svg                       # Iconos SVG del helper de HyprCapture
+layer-shell-qt                # Soporte layer-shell para el overlay Qt de HyprCapture
+opencv                        # Alineación de imágenes para capturas con scroll (HyprCapture)
+libpipewire                   # Cabeceras de PipeWire (grabación de audio en HyprCapture)
+fftw                          # Cancelación de eco DTLN-AEC (HyprCapture)
+libpulse                      # Cabeceras de PulseAudio (grabación de audio en HyprCapture)
+ffmpeg                        # Codificación de video/GIF para grabaciones de HyprCapture
+x265                          # Codificador HEVC para capturas HDR en HEIC (HyprCapture)
+libde265                      # Decodificador HEVC para capturas HDR en HEIC (HyprCapture)
+libjpeg-turbo                 # Dependencia del gain-map HEIC (HyprCapture)
+# --- Hymission (vista general estilo Mission Control para Hyprland, se compila con hyprpm) ---
+gtk4                          # Helper de búsqueda de ventanas de Hymission
+gtk4-layer-shell              # Soporte layer-shell para el helper GTK4 de Hymission
+libadwaita                    # Tema claro/oscuro del helper de búsqueda de Hymission
 vokoscreen                    # Grabador de pantalla y webcam para Wayland y PipeWire (VokoscreenNG)
 btop                          # Monitor de recursos elegante para terminal
 network-manager-applet        # Icono de red (nm-applet) en la bandeja de sistema
@@ -105,3 +125,13 @@ fzf                           # Buscador interactivo por línea de comandos (opc
 #
 # Paso 5: Ejecutar Hyprland
 # Hyprland
+#
+# Paso 6 (dentro de la sesión de Hyprland): Instalar los plugins HyprCapture y Hymission
+# sudo pacman -S --needed hyprpm cmake cpio nlohmann-json qt6-base qt6-svg layer-shell-qt opencv libpipewire fftw libpulse ffmpeg x265 libde265 libjpeg-turbo gtk4 gtk4-layer-shell libadwaita
+# hyprpm update
+# hyprpm add https://github.com/gfhdhytghd/HyprCapture
+# hyprpm add https://github.com/gfhdhytghd/hymission
+# hyprpm enable hyprcapture
+# hyprpm enable hymission
+# hyprpm reload
+# Verificar: hyprctl plugin list && test -x ~/.local/bin/hyprcapture-ui && test -x ~/.local/bin/hymission-search-input
