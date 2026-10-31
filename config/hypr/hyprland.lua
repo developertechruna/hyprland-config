@@ -67,6 +67,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("bash ~/.config/hypr/set_gtk.sh")
     hl.exec_cmd("bash ~/.config/hypr/power_notify.sh")
 
+    -- Lanzador de aplicaciones residente (latencia cero)
+    hl.exec_cmd("hyprlauncher -d")
+
     -- Carga de plugins gestionados por hyprpm (HyprCapture)
     hl.exec_cmd("hyprpm reload -n")
 end)
@@ -87,7 +90,7 @@ hl.config({
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
         force_default_wallpaper = 0,
-        mouse_move_focuses_monitor = false,
+        mouse_move_focuses_monitor = true,
     },
 
     cursor = {
@@ -155,7 +158,8 @@ hl.config({
 ---------------------
 ---- ANIMACIONES ----
 ---------------------
-hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+hl.curve("myBezier",   { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+hl.curve("realsmooth", { type = "bezier", points = { {0.28, 0.0}, {0.0,  0.99} } })
 hl.animation({ leaf = "windows",     enabled = true, speed = 4, bezier = "myBezier" })
 hl.animation({ leaf = "windowsOut",  enabled = true, speed = 4, bezier = "default", style = "popin 80%" })
 hl.animation({ leaf = "border",      enabled = true, speed = 5, bezier = "default" })
@@ -176,12 +180,12 @@ hl.bind("Caps_Lock",          hl.dsp.exec_cmd("pkill -RTMIN+1 waybar"))
 hl.bind(mainMod .. " + RETURN",   hl.dsp.exec_cmd("which kitty >/dev/null 2>&1 && kitty || xfce4-terminal"))
 hl.bind(mainMod .. " + B",        hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + E",        hl.dsp.exec_cmd("thunar"))
-hl.bind(mainMod .. " + D",        hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + D",        hl.dsp.exec_cmd("hyprlauncher -t"))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("nwg-drawer"))
 hl.bind(mainMod .. " + M",        hl.dsp.exec_cmd("nwg-drawer"))
 hl.bind(mainMod .. " + A",        hl.dsp.exec_cmd("python3 ~/.config/hypr/toggle_dock.py"))
 hl.bind(mainMod .. " + Escape",   hl.dsp.exec_cmd("wlogout"))
-hl.bind(mainMod .. " + P",        hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(mainMod .. " + P",        hl.dsp.exec_cmd("cliphist list | hyprlauncher -m | cliphist decode | wl-copy"))
 hl.bind(mainMod .. " + N",        hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client -d -sw"))
 
@@ -195,8 +199,9 @@ hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen({ mode = "fullscreen
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Capturas de pantalla con HyprCapture (binario UI independiente)
-hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --in-place-edit-toolbar 1"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --quick"))
+-- --overlay-scope all: permite capturar y dibujar a través de todas las pantallas conectadas
+hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --overlay-scope all --in-place-edit-toolbar 1"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --overlay-scope all --quick"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui -m window"))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui -m fullscreen"))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --record"))
@@ -285,14 +290,36 @@ if hl.plugin.hyprfocus then
                 enabled = true,
                 animate_floating = true,
                 animate_workspacechange = true,
-                focus_animation = "flash",
+                keyboard_focus_animation = "flash",
+                mouse_focus_animation = "flash",
                 flash = {
-                    flash_opacity = 0.85,
+                    flash_opacity = 0.80,
                     in_bezier = "realsmooth",
                     in_speed = 0.5,
                     out_bezier = "realsmooth",
                     out_speed = 3,
                 },
+                shrink = {
+                    shrink_percentage = 0.95,
+                    in_bezier = "realsmooth",
+                    in_speed = 0.5,
+                    out_bezier = "realsmooth",
+                    out_speed = 3,
+                },
+            },
+        },
+    })
+end
+
+-- Doble borde estilizado para ventanas (borders-plus-plus)
+if hl.plugin["borders-plus-plus"] then
+    hl.config({
+        plugin = {
+            ["borders-plus-plus"] = {
+                add_borders = 1,
+                ["col.border_1"] = "rgb(181825)",
+                border_size_1 = 2,
+                natural_rounding = "yes",
             },
         },
     })
@@ -469,8 +496,8 @@ hl.layer_rule({
     blur = true,
 })
 hl.layer_rule({
-    name = "rofi-blur",
-    match = { namespace = "^(rofi)$" },
+    name = "hyprlauncher-blur",
+    match = { namespace = "^(hyprlauncher)$" },
     blur = true,
     ignore_alpha = 0.5,
 })
