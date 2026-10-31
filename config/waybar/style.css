@@ -26,7 +26,7 @@ window#waybar {
     background-color: rgba(24, 24, 37, 0.78);
     border: 1px solid rgba(205, 214, 244, 0.12);
     border-radius: 10px;
-    padding: 2px 6px;
+    padding: 2px 8px;
     margin: 0 1px;
 }
 
@@ -72,14 +72,15 @@ window#waybar {
 /* Barra de tareas (Taskbar) */
 #taskbar {
     background: transparent;
-    margin-left: 2px;
+    margin: 0;
     padding: 0;
 }
 
 #taskbar button {
-    padding: 1px 2px;
-    margin: 1px 0.5px;
-    border-radius: 5px;
+    padding: 2px 6px;
+    margin: 1px 2px;
+    border-radius: 6px;
+    border: 1px solid transparent;
     color: #cdd6f4;
     background-color: transparent;
     transition: all 0.2s ease;
@@ -87,12 +88,18 @@ window#waybar {
 
 #taskbar button:hover {
     background-color: rgba(137, 180, 250, 0.18);
+    border: 1px solid rgba(137, 180, 250, 0.35);
     color: #89b4fa;
 }
 
 #taskbar button.active {
-    background-color: rgba(203, 166, 247, 0.18);
-    border-bottom: 2px solid #cba6f7;
+    background-color: rgba(203, 166, 247, 0.20);
+    border: 1px solid rgba(203, 166, 247, 0.50);
+}
+
+#taskbar image {
+    margin: 0;
+    padding: 0;
 }
 
 /* ==========================================
