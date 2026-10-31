@@ -4,13 +4,13 @@
 // ==========================================
 {
     "layer": "top",
-        "position": "top",
-            "height": 26,
-                "spacing": 1,
-                    "margin-top": 2,
-                        "margin-bottom": 2,
-                            "margin-left": 6,
-                                "margin-right": 6,
+    "position": "top",
+    "height": 26,
+    "spacing": 1,
+    "margin-top": 2,
+    "margin-bottom": 0,
+    "margin-left": 2,
+    "margin-right": 2,
 
                                     // Módulos organizados en 3 islas flotantes independientes
                                     //"modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/submap"],
