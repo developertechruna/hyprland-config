@@ -46,10 +46,11 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user restart xdg-desktop-portal.service")
 
     -- Componentes principales de la interfaz
-    hl.exec_cmd("waybar")                                            -- Barra superior
+    hl.exec_cmd("hyprpanel")                                         -- Barra superior y Centro de Control
+    -- hl.exec_cmd("waybar")                                         -- Barra superior alternativa (Waybar)
     hl.exec_cmd("awww-daemon")                                       -- Servidor de fondos de pantalla
     hl.exec_cmd("bash ~/.config/hypr/wallpaper_loop.sh")             -- Rotación de fondos
-    hl.exec_cmd("swaync")                                            -- Centro de notificaciones
+    -- hl.exec_cmd("swaync")                                         -- Centro de notificaciones alternativo
     hl.exec_cmd("nm-applet --indicator")                               -- Bandeja de red / VPN
     hl.exec_cmd("blueman-applet")                                    -- Bandeja de Bluetooth
     hl.exec_cmd("hypridle")                                          -- Administrador de inactividad
@@ -186,8 +187,8 @@ hl.bind(mainMod .. " + M",        hl.dsp.exec_cmd("nwg-drawer"))
 hl.bind(mainMod .. " + A",        hl.dsp.exec_cmd("python3 ~/.config/hypr/toggle_dock.py"))
 hl.bind(mainMod .. " + Escape",   hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + P",        hl.dsp.exec_cmd("cliphist list | hyprlauncher -m | cliphist decode | wl-copy"))
-hl.bind(mainMod .. " + N",        hl.dsp.exec_cmd("swaync-client -t -sw"))
-hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client -d -sw"))
+hl.bind(mainMod .. " + N",        hl.dsp.exec_cmd("hyprpanel t notificationsmenu"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("hyprpanel t dashboardmenu"))
 
 -- Control de Ventanas y Sistema
 hl.bind(mainMod .. " + Q",         hl.dsp.window.close())
@@ -489,7 +490,13 @@ hl.window_rule({
     opacity = "0.94 0.88",
 })
 
--- Reglas de capas (Layer Rules para Waybar, Rofi y SwayNC)
+-- Reglas de capas (Layer Rules para HyprPanel, Waybar, hyprlauncher y SwayNC)
+hl.layer_rule({
+    name = "hyprpanel-blur",
+    match = { namespace = "^(hyprpanel)$" },
+    blur = true,
+    ignore_alpha = 0.5,
+})
 hl.layer_rule({
     name = "waybar-blur",
     match = { namespace = "^(waybar)$" },
