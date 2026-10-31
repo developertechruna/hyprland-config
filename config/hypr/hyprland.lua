@@ -68,7 +68,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("bash ~/.config/hypr/power_notify.sh")
 
     -- Lanzador de aplicaciones residente (latencia cero)
-    hl.exec_cmd("hyprlauncher -d")
+    -- hl.exec_cmd("hyprlauncher -d")
 
     -- Carga de plugins gestionados por hyprpm (HyprCapture)
     hl.exec_cmd("hyprpm reload -n")
@@ -180,12 +180,12 @@ hl.bind("Caps_Lock",          hl.dsp.exec_cmd("pkill -RTMIN+1 waybar"))
 hl.bind(mainMod .. " + RETURN",   hl.dsp.exec_cmd("which kitty >/dev/null 2>&1 && kitty || xfce4-terminal"))
 hl.bind(mainMod .. " + B",        hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + E",        hl.dsp.exec_cmd("thunar"))
-hl.bind(mainMod .. " + D",        hl.dsp.exec_cmd("hyprlauncher -t"))
+hl.bind(mainMod .. " + D",        hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("nwg-drawer"))
 hl.bind(mainMod .. " + M",        hl.dsp.exec_cmd("nwg-drawer"))
 hl.bind(mainMod .. " + A",        hl.dsp.exec_cmd("python3 ~/.config/hypr/toggle_dock.py"))
 hl.bind(mainMod .. " + Escape",   hl.dsp.exec_cmd("wlogout"))
-hl.bind(mainMod .. " + P",        hl.dsp.exec_cmd("cliphist list | hyprlauncher -m | cliphist decode | wl-copy"))
+hl.bind(mainMod .. " + P",        hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 hl.bind(mainMod .. " + N",        hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client -d -sw"))
 
@@ -489,11 +489,17 @@ hl.window_rule({
     opacity = "0.94 0.88",
 })
 
--- Reglas de capas (Layer Rules para Waybar, hyprlauncher y SwayNC)
+-- Reglas de capas (Layer Rules para Waybar, Rofi, hyprlauncher y SwayNC)
 hl.layer_rule({
     name = "waybar-blur",
     match = { namespace = "^(waybar)$" },
     blur = true,
+})
+hl.layer_rule({
+    name = "rofi-blur",
+    match = { namespace = "^(rofi)$" },
+    blur = true,
+    ignore_alpha = 0.5,
 })
 hl.layer_rule({
     name = "hyprlauncher-blur",
