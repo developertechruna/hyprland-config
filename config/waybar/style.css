@@ -30,6 +30,14 @@ window#waybar {
     margin: 0 1px;
 }
 
+.modules-left {
+    margin-left: 0;
+}
+
+.modules-right {
+    margin-right: 0;
+}
+
 /* ==========================================
    Isla Izquierda: Workspaces & Taskbar
    ========================================== */
@@ -77,7 +85,7 @@ window#waybar {
 }
 
 #taskbar button {
-    padding: 2px 6px;
+    padding: 2px;
     margin: 1px 2px;
     border-radius: 6px;
     border: 1px solid transparent;
