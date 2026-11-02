@@ -32,13 +32,17 @@ export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/go/bin" ]] && export PATH="$HOME/go/bin:$PATH"
 
-# Configuración y rutas de JDKs (Java)
+# Configuración y rutas de JDKs y Maven (Java)
+export JDK6_HOME="/home/developer/Apps/jdks/jdk1.6.0_45"
 export JDK7_HOME="/home/developer/Apps/jdks/jdk1.7.0_80"
 export JDK8_HOME="/home/developer/Apps/jdks/jdk1.8.0_461"
-# Si JAVA_HOME ya viene definido (por ejemplo por perfiles de terminal JDK 7 o JDK 8), respetarlo;
-# de lo contrario, se mantiene el JDK global del sistema (conmutables con 'jdk7', 'jdk8' o 'setjdk')
+export MAVEN_32_HOME="/home/developer/Apps/apache-maven-3.2.5"
+# Si JAVA_HOME o MAVEN_HOME ya vienen definidos (por perfiles de terminal), respetarlos
 if [[ -n "$JAVA_HOME" && -d "$JAVA_HOME/bin" ]]; then
     export PATH="$JAVA_HOME/bin:$PATH"
+fi
+if [[ -n "$MAVEN_HOME" && -d "$MAVEN_HOME/bin" ]]; then
+    export PATH="$MAVEN_HOME/bin:$PATH"
 fi
 
 

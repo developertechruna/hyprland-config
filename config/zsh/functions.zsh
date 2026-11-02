@@ -92,40 +92,56 @@ backup() {
 }
 
 # =====================================================================
-# Gestión y Conmutación Rápida de Versiones de JDK (Java)
+# Gestión y Conmutación Rápida de Versiones de JDK y Maven (Java)
 # =====================================================================
+export JDK6_HOME="${JDK6_HOME:-/home/developer/Apps/jdks/jdk1.6.0_45}"
 export JDK7_HOME="${JDK7_HOME:-/home/developer/Apps/jdks/jdk1.7.0_80}"
 export JDK8_HOME="${JDK8_HOME:-/home/developer/Apps/jdks/jdk1.8.0_461}"
+export MAVEN_32_HOME="${MAVEN_32_HOME:-/home/developer/Apps/apache-maven-3.2.5}"
 
 setjdk() {
     local version="$1"
     local target=""
+    local target_mvn=""
 
     case "$version" in
+        6|1.6)
+            target="$JDK6_HOME"
+            target_mvn="$MAVEN_32_HOME"
+            ;;
         7|1.7)
             target="$JDK7_HOME"
+            target_mvn="$MAVEN_32_HOME"
             ;;
         8|1.8)
             target="$JDK8_HOME"
+            target_mvn=""
             ;;
         system|sys|default|17)
             export JAVA_HOME=""
-            export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/developer/Apps/jdks/' | tr '\n' ':' | sed 's/:$//')"
-            echo "Restablecido a JDK del sistema."
+            unset MAVEN_HOME M2_HOME
+            export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/developer/Apps/jdks/' | grep -v '/home/developer/Apps/apache-maven-' | tr '\n' ':' | sed 's/:$//')"
+            echo "Restablecido a JDK y Maven del sistema."
             command -v java >/dev/null 2>&1 && java -version
+            command -v mvn >/dev/null 2>&1 && mvn -version | head -n 1
             return 0
             ;;
         *)
-            echo "Uso: setjdk <7|8|system> (o escribe 'jdk7' / 'jdk8')"
+            echo "Uso: setjdk <6|7|8|system> (o escribe 'jdk6' / 'jdk7' / 'jdk8')"
             echo ""
-            echo "JDKs configurados:"
-            echo "  7 -> $JDK7_HOME"
-            echo "  8 -> $JDK8_HOME"
+            echo "Entornos configurados:"
+            echo "  6 -> JDK 1.6 ($JDK6_HOME) + Maven 3.2.5"
+            echo "  7 -> JDK 1.7 ($JDK7_HOME) + Maven 3.2.5"
+            echo "  8 -> JDK 1.8 ($JDK8_HOME) + Maven del sistema"
             echo "  system -> Predeterminado del sistema"
             echo ""
-            echo "JAVA_HOME actual: ${JAVA_HOME:-Sistema}"
+            echo "JAVA_HOME actual:  ${JAVA_HOME:-Sistema}"
+            echo "MAVEN_HOME actual: ${MAVEN_HOME:-Sistema}"
             if command -v java >/dev/null 2>&1; then
                 java -version
+            fi
+            if command -v mvn >/dev/null 2>&1; then
+                mvn -version | head -n 1
             fi
             return 1
             ;;
@@ -133,17 +149,30 @@ setjdk() {
 
     if [[ -d "$target" ]]; then
         export JAVA_HOME="$target"
-        # Remover versiones anteriores de jdks en PATH y anteponer la seleccionada
-        export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/developer/Apps/jdks/' | tr '\n' ':' | sed 's/:$//')"
+        # Limpiar versiones previas de JDK y Maven en PATH
+        export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/developer/Apps/jdks/' | grep -v '/home/developer/Apps/apache-maven-' | tr '\n' ':' | sed 's/:$//')"
+        
+        # Configurar Maven compatible si aplica
+        if [[ -n "$target_mvn" && -d "$target_mvn" ]]; then
+            export MAVEN_HOME="$target_mvn"
+            export M2_HOME="$target_mvn"
+            export PATH="$MAVEN_HOME/bin:$PATH"
+        else
+            unset MAVEN_HOME M2_HOME
+        fi
+
         export PATH="$JAVA_HOME/bin:$PATH"
         echo "JAVA_HOME configurado a: $JAVA_HOME"
+        [[ -n "$MAVEN_HOME" ]] && echo "MAVEN_HOME configurado a: $MAVEN_HOME"
         java -version
+        command -v mvn >/dev/null 2>&1 && mvn -version | head -n 1
     else
         echo "Error: El directorio '$target' no existe."
         return 1
     fi
 }
 
+jdk6() { setjdk 6; }
 jdk7() { setjdk 7; }
 jdk8() { setjdk 8; }
 

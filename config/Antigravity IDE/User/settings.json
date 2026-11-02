@@ -30,7 +30,19 @@
             "path": "zsh",
             "env": {
                 "JAVA_HOME": "/home/developer/Apps/jdks/jdk1.7.0_80",
-                "PATH": "/home/developer/Apps/jdks/jdk1.7.0_80/bin:${env:PATH}"
+                "MAVEN_HOME": "/home/developer/Apps/apache-maven-3.2.5",
+                "M2_HOME": "/home/developer/Apps/apache-maven-3.2.5",
+                "PATH": "/home/developer/Apps/apache-maven-3.2.5/bin:/home/developer/Apps/jdks/jdk1.7.0_80/bin:${env:PATH}"
+            },
+            "icon": "coffee"
+        },
+        "zsh (JDK 6)": {
+            "path": "zsh",
+            "env": {
+                "JAVA_HOME": "/home/developer/Apps/jdks/jdk1.6.0_45",
+                "MAVEN_HOME": "/home/developer/Apps/apache-maven-3.2.5",
+                "M2_HOME": "/home/developer/Apps/apache-maven-3.2.5",
+                "PATH": "/home/developer/Apps/apache-maven-3.2.5/bin:/home/developer/Apps/jdks/jdk1.6.0_45/bin:${env:PATH}"
             },
             "icon": "coffee"
         },
@@ -40,6 +52,10 @@
         }
     },
     "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.6",
+            "path": "/home/developer/Apps/jdks/jdk1.6.0_45"
+        },
         {
             "name": "JavaSE-1.7",
             "path": "/home/developer/Apps/jdks/jdk1.7.0_80"
