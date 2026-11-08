@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 # Script para aplicar las configuraciones locales al directorio del usuario y recargar Waybar
 
+# Cargar o inicializar archivo de configuración personal (~/.config/desktop/desktop.conf)
+mkdir -p "$HOME/.config/desktop"
+if [ ! -f "$HOME/.config/desktop/desktop.conf" ] && [ -f "desktop.conf.example" ]; then
+    echo "Inicializando configuración de usuario en ~/.config/desktop/desktop.conf..."
+    cp -v desktop.conf.example "$HOME/.config/desktop/desktop.conf"
+    chmod 600 "$HOME/.config/desktop/desktop.conf"
+fi
+if [ -f "$HOME/.config/desktop/desktop.conf" ]; then
+    # shellcheck source=/dev/null
+    source "$HOME/.config/desktop/desktop.conf"
+fi
+
 echo "Sincronizando configuraciones con ~/.config..."
 mkdir -p ~/.config
 
@@ -19,12 +31,15 @@ chmod +x ~/.config/hypr/set_gtk.sh 2>/dev/null || true
 chmod +x ~/.config/waybar/mic.sh 2>/dev/null || true
 chmod +x ~/.config/waybar/media.sh 2>/dev/null || true
 chmod +x ~/.config/waybar/vpn.sh 2>/dev/null || true
+chmod +x ~/.config/waybar/cirrus.sh 2>/dev/null || true
 chmod +x ~/.config/hypr/power_notify.sh 2>/dev/null || true
+chmod +x ~/.config/hypr/screenshot.sh 2>/dev/null || true
 chmod +x ~/.config/hypr/get_layout.py 2>/dev/null || true
 chmod +x ~/.config/hypr/switch_layout.py 2>/dev/null || true
 
-# Asegurar permisos seguros para configuración de Cantata (0600)
+# Asegurar permisos seguros y ruta de música para configuración de Cantata (0600)
 if [ -f "$HOME/.config/cantata/cantata.conf" ]; then
+    sed -i "s|^dir=.*|dir=${MUSIC_DIR:-$HOME/Music}|" "$HOME/.config/cantata/cantata.conf"
     chmod 600 "$HOME/.config/cantata/cantata.conf"
 fi
 
@@ -118,11 +133,17 @@ EOF_PREFS
 fi
 
 # Sincronizar estilos de tema oscuro (Catppuccin Sapphire / botones / cabeceras compactas) en Eclipse IDE
-ECLIPSE_THEMES_DIR=$(find /home/developer/Apps/eclipse/plugins -maxdepth 1 -type d -name "org.eclipse.ui.themes_*" 2>/dev/null | head -n 1)
+ECLIPSE_DIR="${ECLIPSE_HOME:-$HOME/Apps/eclipse}"
+ECLIPSE_THEMES_DIR=$(find "$ECLIPSE_DIR/plugins" -maxdepth 1 -type d -name "org.eclipse.ui.themes_*" 2>/dev/null | head -n 1)
 if [ -n "$ECLIPSE_THEMES_DIR" ] && [ -d "$ECLIPSE_THEMES_DIR/css" ]; then
     echo "Sincronizando tema oscuro personalizado para Eclipse en $ECLIPSE_THEMES_DIR/css..."
     [ -f "config/eclipse/e4-dark_linux.css" ] && cp -v config/eclipse/e4-dark_linux.css "$ECLIPSE_THEMES_DIR/css/e4-dark_linux.css" 2>/dev/null || true
     [ -f "config/eclipse/e4-dark_tabstyle.css" ] && cp -v config/eclipse/e4-dark_tabstyle.css "$ECLIPSE_THEMES_DIR/css/dark/e4-dark_tabstyle.css" 2>/dev/null || true
+fi
+
+# Sincronizar icono de Eclipse si existe en ECLIPSE_HOME
+if [ -d "$HOME/.local/share/icons" ] && [ -f "$ECLIPSE_DIR/icon.xpm" ]; then
+    cp -v "$ECLIPSE_DIR/icon.xpm" "$HOME/.local/share/icons/eclipse.xpm" 2>/dev/null || true
 fi
 
 echo "Reiniciando rotación automática de fondos de pantalla..."

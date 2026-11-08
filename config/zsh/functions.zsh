@@ -94,10 +94,13 @@ backup() {
 # =====================================================================
 # Gestión y Conmutación Rápida de Versiones de JDK y Maven (Java)
 # =====================================================================
-export JDK6_HOME="${JDK6_HOME:-/home/developer/Apps/jdks/jdk1.6.0_45}"
-export JDK7_HOME="${JDK7_HOME:-/home/developer/Apps/jdks/jdk1.7.0_80}"
-export JDK8_HOME="${JDK8_HOME:-/home/developer/Apps/jdks/jdk1.8.0_461}"
-export MAVEN_32_HOME="${MAVEN_32_HOME:-/home/developer/Apps/apache-maven-3.2.5}"
+# Cargar configuración personal si existe
+[[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/desktop/desktop.conf" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/desktop/desktop.conf"
+
+export JDK6_HOME="${JDK6_HOME:-$HOME/Apps/jdks/jdk1.6.0_45}"
+export JDK7_HOME="${JDK7_HOME:-$HOME/Apps/jdks/jdk1.7.0_80}"
+export JDK8_HOME="${JDK8_HOME:-$HOME/Apps/jdks/jdk1.8.0_461}"
+export MAVEN_32_HOME="${MAVEN_32_HOME:-$HOME/Apps/apache-maven-3.2.5}"
 
 setjdk() {
     local version="$1"
@@ -120,7 +123,7 @@ setjdk() {
         system|sys|default|17)
             export JAVA_HOME=""
             unset MAVEN_HOME M2_HOME
-            export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/developer/Apps/jdks/' | grep -v '/home/developer/Apps/apache-maven-' | tr '\n' ':' | sed 's/:$//')"
+            export PATH="$(echo "$PATH" | tr ':' '\n' | grep -vE '/(Apps|opt)/(jdks|apache-maven)' | tr '\n' ':' | sed 's/:$//')"
             echo "Restablecido a JDK y Maven del sistema."
             command -v java >/dev/null 2>&1 && java -version
             command -v mvn >/dev/null 2>&1 && mvn -version | head -n 1
@@ -150,7 +153,7 @@ setjdk() {
     if [[ -d "$target" ]]; then
         export JAVA_HOME="$target"
         # Limpiar versiones previas de JDK y Maven en PATH
-        export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '/home/developer/Apps/jdks/' | grep -v '/home/developer/Apps/apache-maven-' | tr '\n' ':' | sed 's/:$//')"
+        export PATH="$(echo "$PATH" | tr ':' '\n' | grep -vE '/(Apps|opt)/(jdks|apache-maven)' | tr '\n' ':' | sed 's/:$//')"
         
         # Configurar Maven compatible si aplica
         if [[ -n "$target_mvn" && -d "$target_mvn" ]]; then

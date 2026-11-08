@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Eclipse IDE
 Comment=Eclipse Integrated Development Environment
-Exec=/home/developer/.local/bin/eclipse %u
-Icon=/home/developer/Apps/eclipse/icon.xpm
+Exec=eclipse %u
+Icon=eclipse
 Terminal=false
 StartupWMClass=Eclipse
 Type=Application

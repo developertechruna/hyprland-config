@@ -32,9 +32,16 @@
   "widgets": [
     "title",
     "dnd",
+    "mpris",
     "notifications"
   ],
   "widget-config": {
+    "mpris": {
+      "show-album-art": "always",
+      "autohide": true,
+      "loop-carousel": true,
+      "blacklist": ["playerctld", "^chromium\\.instance.*"]
+    },
     "title": {
       "text": "Notificaciones",
       "clear-all-button": true,

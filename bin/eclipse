@@ -5,11 +5,23 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export SWT_GTK3=1
 export GTK_THEME="catppuccin-mocha-sapphire-standard+default"
 
-ECLIPSE_BIN="/home/developer/Apps/eclipse/eclipse"
+# Cargar variables de configuración personal si existen
+CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/desktop/desktop.conf"
+if [ -f "$CONFIG_FILE" ]; then
+    # shellcheck source=/dev/null
+    source "$CONFIG_FILE"
+fi
+
+ECLIPSE_HOME="${ECLIPSE_HOME:-$HOME/Apps/eclipse}"
+ECLIPSE_BIN="${ECLIPSE_BIN:-$ECLIPSE_HOME/eclipse}"
 
 if [ ! -x "$ECLIPSE_BIN" ]; then
-    echo "Error: No se encontró el binario de Eclipse en $ECLIPSE_BIN" >&2
-    exit 1
+    if command -v eclipse >/dev/null 2>&1; then
+        ECLIPSE_BIN="$(command -v eclipse)"
+    else
+        echo "Error: No se encontró el binario de Eclipse en $ECLIPSE_BIN ni en PATH." >&2
+        exit 1
+    fi
 fi
 
 exec "$ECLIPSE_BIN" "$@"

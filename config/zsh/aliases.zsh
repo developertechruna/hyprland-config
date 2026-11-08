@@ -108,13 +108,19 @@ alias pacorphans='pacman -Qtdq'
 alias clip='wl-copy'
 alias paste='wl-paste'
 alias eclipse-wayland='env GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
-alias eclipse-jdk8='env JAVA_HOME=/home/developer/Apps/jdks/jdk1.8.0_461 PATH=/home/developer/Apps/jdks/jdk1.8.0_461/bin:$PATH GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
-alias eclipse-jdk7='env JAVA_HOME=/home/developer/Apps/jdks/jdk1.7.0_80 PATH=/home/developer/Apps/apache-maven-3.2.5/bin:/home/developer/Apps/jdks/jdk1.7.0_80/bin:$PATH GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
-alias eclipse-jdk6='env JAVA_HOME=/home/developer/Apps/jdks/jdk1.6.0_45 PATH=/home/developer/Apps/apache-maven-3.2.5/bin:/home/developer/Apps/jdks/jdk1.6.0_45/bin:$PATH GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
+alias eclipse-jdk8='env JAVA_HOME="${JDK8_HOME:-$HOME/Apps/jdks/jdk1.8.0_461}" PATH="${JDK8_HOME:-$HOME/Apps/jdks/jdk1.8.0_461}/bin:$PATH" GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
+alias eclipse-jdk7='env JAVA_HOME="${JDK7_HOME:-$HOME/Apps/jdks/jdk1.7.0_80}" PATH="${MAVEN_32_HOME:-$HOME/Apps/apache-maven-3.2.5}/bin:${JDK7_HOME:-$HOME/Apps/jdks/jdk1.7.0_80}/bin:$PATH" GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
+alias eclipse-jdk6='env JAVA_HOME="${JDK6_HOME:-$HOME/Apps/jdks/jdk1.6.0_45}" PATH="${MAVEN_32_HOME:-$HOME/Apps/apache-maven-3.2.5}/bin:${JDK6_HOME:-$HOME/Apps/jdks/jdk1.6.0_45}/bin:$PATH" GDK_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 eclipse >/dev/null 2>&1 &'
 alias antigravity-wayland='antigravity-ide --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime >/dev/null 2>&1 &'
-alias apply-dots='(cd ~/Projects/desktop/desktop-for-developer && ./apply.sh)'
+alias apply-dots='(cd "${DOTFILES_DIR:-$HOME/Projects/desktop/desktop-for-developer}" && ./apply.sh)'
 
 
 # Red e Información
 alias ports='ss -tulanp'
 alias pingg='ping -c 5 1.1.1.1'
+
+# ---------------------------------------------------------------------
+# 7. CARPETAS COMPARTIDAS Y RED (Cirrus F3 sobre Tailscale)
+# ---------------------------------------------------------------------
+alias mount-cirrus='bash ~/.config/waybar/cirrus.sh mount'
+alias umount-cirrus='bash ~/.config/waybar/cirrus.sh umount'

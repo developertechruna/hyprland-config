@@ -1,0 +1,32 @@
+# ==============================================================================
+# Configuración del Entorno de Escritorio y Rutas de Usuario (Dotfiles)
+# ==============================================================================
+# Copia este archivo a ~/.config/desktop/desktop.conf y ajusta los valores para
+# tu entorno local. Este archivo de configuración es ignorado por git para
+# proteger tus IPs, rutas privadas y credenciales en repositorios públicos.
+# ==============================================================================
+
+# --- Directorio de Aplicaciones y Herramientas ---
+export APPS_DIR="${APPS_DIR:-$HOME/Apps}"
+export ECLIPSE_HOME="${ECLIPSE_HOME:-$APPS_DIR/eclipse}"
+
+# --- Versiones de Java (JDK) y Maven ---
+export JDK6_HOME="${JDK6_HOME:-$APPS_DIR/jdks/jdk1.6.0_45}"
+export JDK7_HOME="${JDK7_HOME:-$APPS_DIR/jdks/jdk1.7.0_80}"
+export JDK8_HOME="${JDK8_HOME:-$APPS_DIR/jdks/jdk1.8.0_461}"
+export MAVEN_32_HOME="${MAVEN_32_HOME:-$APPS_DIR/apache-maven-3.2.5}"
+
+# --- Servidor Remoto / Recursos Compartidos (CIFS / Tailscale) ---
+# Define la URL del recurso compartido SMB/CIFS y la IP de comprobación
+export CIRRUS_SERVER="${CIRRUS_SERVER:-//a.b.c.a/Publico}"
+export CIRRUS_HOST="${CIRRUS_HOST:-ip.add.res}"
+export CIRRUS_MOUNT="${CIRRUS_MOUNT:-$HOME/NFS}"
+export CIRRUS_CREDS="${CIRRUS_CREDS:-/miusuario/.archivo-pass}"
+
+# --- Fondos de Pantalla y Multimedia ---
+export WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/Pictures/wallpaper}"
+export MUSIC_DIR="${MUSIC_DIR:-$HOME/Music}"
+
+# --- Repositorio de Dotfiles ---
+export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Projects/desktop/desktop-for-developer}"
+

@@ -198,13 +198,11 @@ hl.bind("ALT + Tab",               hl.dsp.exec_cmd("rofi -show window"))
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 
--- Capturas de pantalla con HyprCapture (binario UI independiente)
--- --overlay-scope all: permite capturar y dibujar a través de todas las pantallas conectadas
-hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --overlay-scope all --in-place-edit-toolbar 1"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --overlay-scope all --quick"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui -m window"))
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui -m fullscreen"))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.local/bin/hyprcapture-ui --record"))
+-- Capturas de pantalla con Hyprland / Wayland (Grim, Slurp, Swappy / Satty)
+hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("~/.config/hypr/screenshot.sh edit"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/screenshot.sh copy"))
+hl.bind(mainMod .. " + ALT + S",   hl.dsp.exec_cmd("~/.config/hypr/screenshot.sh full"))
+hl.bind(mainMod .. " + CTRL + S",  hl.dsp.exec_cmd("~/.config/hypr/screenshot.sh window"))
 
 -- Foco entre ventanas (estilo Vim: H, J, K, L)
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -487,6 +485,28 @@ hl.window_rule({
     name = "terminal-opacity-kitty",
     match = { class = "^(kitty)$" },
     opacity = "0.94 0.88",
+})
+
+hl.window_rule({
+    name = "swappy",
+    match = { class = "^(swappy)$" },
+    float = true,
+    center = true,
+})
+
+hl.window_rule({
+    name = "satty",
+    match = { class = "^(com\\.gabm\\.satty)$" },
+    float = true,
+    center = true,
+})
+
+hl.window_rule({
+    name = "trayscale",
+    match = { class = "^(dev\\.deedles\\.Trayscale)$" },
+    float = true,
+    center = true,
+    size = "480 600",
 })
 
 -- Reglas de capas (Layer Rules para Waybar, Rofi, hyprlauncher y SwayNC)

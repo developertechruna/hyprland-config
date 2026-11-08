@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# Script para gestionar la VPN en Waybar usando Rofi y nmcli
+# ==============================================================================
+# Script para gestionar la VPN en Waybar usando Rofi y nmcli (Solo icono)
+# ==============================================================================
+
+VPN_STATE_FILE="/tmp/vpn_state"
 
 # Función para obtener la VPN activa en NetworkManager
 get_active_vpn() {
@@ -9,11 +13,21 @@ get_active_vpn() {
 # Función para conectar VPN directamente con credenciales guardadas
 activate_vpn() {
     local vpn="$1"
+    echo "connecting" > "$VPN_STATE_FILE"
+    trap 'rm -f "$VPN_STATE_FILE"; pkill -RTMIN+8 waybar 2>/dev/null || true' EXIT INT TERM
+    pkill -RTMIN+8 waybar 2>/dev/null || true
+
+    notify-send "VPN" "Estableciendo conexión a $vpn..." -i network-vpn-symbolic -t 3000
+
     if nmcli connection up "$vpn"; then
-        notify-send "VPN" "Conectado exitosamente a $vpn" -i network-vpn-symbolic
+        rm -f "$VPN_STATE_FILE"
+        notify-send "VPN" "Conectado exitosamente a $vpn" -i network-vpn-symbolic -t 4000
+        pkill -RTMIN+8 waybar 2>/dev/null || true
         return 0
     else
-        notify-send "VPN" "Error al conectar a $vpn" -u critical -i dialog-error
+        rm -f "$VPN_STATE_FILE"
+        notify-send "VPN" "Error al conectar a $vpn" -u critical -i dialog-error -t 5000
+        pkill -RTMIN+8 waybar 2>/dev/null || true
         return 1
     fi
 }
@@ -49,26 +63,27 @@ if [ "$1" = "menu" ]; then
         vpn_name=$(echo "$choice" | sed -e 's/  Desconectar //g' -e 's/  Conectar //g')
         if echo "$choice" | grep -q "Desconectar"; then
             nmcli connection down "$vpn_name"
-            notify-send "VPN" "Desconectado de $vpn_name" -i network-vpn-symbolic
+            notify-send "VPN" "Desconectado de $vpn_name" -i network-vpn-symbolic -t 3000
+            pkill -RTMIN+8 waybar 2>/dev/null || true
         else
-            notify-send "VPN" "Conectando a $vpn_name..." -i network-vpn-symbolic
             activate_vpn "$vpn_name"
         fi
-        
-        # Enviar señal a Waybar para actualizar el módulo inmediatamente (señal RTMIN+8)
-        sleep 1
-        pkill -RTMIN+8 waybar 2>/dev/null || true
     fi
     exit 0
 fi
 
-# Comportamiento por defecto: devolver el estado de la VPN en formato JSON para Waybar
+# Comportamiento por defecto: devolver solo el icono en formato JSON para Waybar
+if [ -f "$VPN_STATE_FILE" ]; then
+    echo '{"text": "", "tooltip": "VPN: Estableciendo conexión...", "class": "connecting"}'
+    exit 0
+fi
+
 active_vpn=$(get_active_vpn)
 
 if [ -n "$active_vpn" ]; then
-    # Mostrar icono de candado cerrado y nombre de la VPN conectada
-    echo "{\"text\": \"  $active_vpn\", \"tooltip\": \"Conectado a: $active_vpn\", \"class\": \"connected\"}"
+    # Candado cerrado activo cuando la VPN está conectada
+    echo "{\"text\": \"\", \"tooltip\": \"VPN: Conectada a $active_vpn\n\nClic izquierdo: Menú de conexiones\", \"class\": \"connected\"}"
 else
-    # Mostrar candado abierto si no hay VPN activa
-    echo "{\"text\": \"  VPN\", \"tooltip\": \"VPN Desconectada\", \"class\": \"disconnected\"}"
+    # Candado abierto cuando la VPN está desconectada
+    echo "{\"text\": \"\", \"tooltip\": \"VPN: Desconectada\n\nClic izquierdo: Conectar VPN\", \"class\": \"disconnected\"}"
 fi

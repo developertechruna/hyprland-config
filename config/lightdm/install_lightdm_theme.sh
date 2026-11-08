@@ -46,7 +46,9 @@ if [ -n "$WALLPAPER_SRC" ] && [ -f "$WALLPAPER_SRC" ]; then
     chmod 644 /usr/share/backgrounds/lightdm-wallpaper.jpg
 elif [ ! -f "/usr/share/backgrounds/lightdm-wallpaper.jpg" ]; then
     # Buscar algún wallpaper de la carpeta del usuario si existe
-    USER_WALL="$(find /home/developer/Documents/Imágenes/wallpaper/ -type f \( -iname "*.jpg" -o -iname "*.png" \) 2>/dev/null | head -n 1 || true)"
+    WALL_SEARCH_DIR="${WALLPAPER_DIR:-$HOME/Pictures/wallpaper}"
+    [ ! -d "$WALL_SEARCH_DIR" ] && WALL_SEARCH_DIR="$HOME/Pictures"
+    USER_WALL="$(find "$WALL_SEARCH_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) 2>/dev/null | head -n 1 || true)"
     if [ -n "$USER_WALL" ] && [ -f "$USER_WALL" ]; then
         echo "Copiando wallpaper por defecto desde $USER_WALL..."
         cp "$USER_WALL" /usr/share/backgrounds/lightdm-wallpaper.jpg
@@ -55,9 +57,9 @@ elif [ ! -f "/usr/share/backgrounds/lightdm-wallpaper.jpg" ]; then
 fi
 
 # 5. Opcional: Crear enlace simbólico de WhiteSur-dark si se desea en /usr/share/icons
-if [ -d "/home/developer/.local/share/icons/WhiteSur-dark" ] && [ ! -d "/usr/share/icons/WhiteSur-dark" ]; then
+if [ -d "$HOME/.local/share/icons/WhiteSur-dark" ] && [ ! -d "/usr/share/icons/WhiteSur-dark" ]; then
     echo "Enlazando WhiteSur-dark a /usr/share/icons para acceso global de LightDM..."
-    ln -s /home/developer/.local/share/icons/WhiteSur-dark /usr/share/icons/WhiteSur-dark || true
+    ln -s "$HOME/.local/share/icons/WhiteSur-dark" /usr/share/icons/WhiteSur-dark || true
 fi
 
 echo ""

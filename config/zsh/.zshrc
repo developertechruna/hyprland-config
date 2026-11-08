@@ -32,11 +32,14 @@ export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/go/bin" ]] && export PATH="$HOME/go/bin:$PATH"
 
+# Cargar configuración personal y de entorno si existe (~/.config/desktop/desktop.conf)
+[[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/desktop/desktop.conf" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/desktop/desktop.conf"
+
 # Configuración y rutas de JDKs y Maven (Java)
-export JDK6_HOME="/home/developer/Apps/jdks/jdk1.6.0_45"
-export JDK7_HOME="/home/developer/Apps/jdks/jdk1.7.0_80"
-export JDK8_HOME="/home/developer/Apps/jdks/jdk1.8.0_461"
-export MAVEN_32_HOME="/home/developer/Apps/apache-maven-3.2.5"
+export JDK6_HOME="${JDK6_HOME:-$HOME/Apps/jdks/jdk1.6.0_45}"
+export JDK7_HOME="${JDK7_HOME:-$HOME/Apps/jdks/jdk1.7.0_80}"
+export JDK8_HOME="${JDK8_HOME:-$HOME/Apps/jdks/jdk1.8.0_461}"
+export MAVEN_32_HOME="${MAVEN_32_HOME:-$HOME/Apps/apache-maven-3.2.5}"
 # Si JAVA_HOME o MAVEN_HOME ya vienen definidos (por perfiles de terminal), respetarlos
 if [[ -n "$JAVA_HOME" && -d "$JAVA_HOME/bin" ]]; then
     export PATH="$JAVA_HOME/bin:$PATH"

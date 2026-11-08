@@ -1,4 +1,12 @@
+# Logs y cachés
 *.log
 .zcompdump*
 *.zwc
 .cache/
+
+# Configuración y credenciales locales (privadas)
+desktop.conf
+*.local
+.smb-*
+secrets.*
+credentials

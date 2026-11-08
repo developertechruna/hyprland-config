@@ -99,6 +99,96 @@
 }
 
 /* ==========================================
+   Widget: Multimedia (MPRIS) - YouTube, Spotify, Cantata, VLC...
+   Tarjeta compacta Catppuccin; las flechas laterales cambian de reproductor
+   ========================================== */
+:root {
+    --mpris-album-art-icon-size: 48px;
+}
+
+.widget-mpris {
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+
+.widget-mpris .widget-mpris-player {
+    background: rgba(30, 30, 46, 0.85);
+    border: 1px solid rgba(116, 199, 236, 0.18);
+    border-radius: 8px;
+    margin: 2px 4px;
+    box-shadow: none;
+}
+
+/* Fondo difuminado con la carátula (atenuado para legibilidad) */
+.widget-mpris .widget-mpris-player .mpris-background {
+    filter: blur(14px);
+    opacity: 0.35;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay {
+    padding: 8px 10px;
+    background-color: rgba(24, 24, 37, 0.72);
+    border-radius: 8px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    -gtk-icon-size: var(--mpris-album-art-icon-size);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-title {
+    color: #cdd6f4;
+    font-weight: 600;
+    font-size: 9pt;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-subtitle {
+    color: #a6adc8;
+    font-size: 8pt;
+}
+
+/* Botones Anterior / Play-Pausa / Siguiente */
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button {
+    background: rgba(49, 50, 68, 0.6);
+    color: #cdd6f4;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    min-width: 26px;
+    min-height: 22px;
+    padding: 2px;
+    margin: 4px 3px 0 3px;
+    transition: all 0.15s ease;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:hover {
+    background: rgba(116, 199, 236, 0.2);
+    border-color: rgba(116, 199, 236, 0.35);
+    color: #74c7ec;
+}
+
+/* Flechas laterales del carrusel: cambiar de aplicativo controlado */
+.widget-mpris > box > button {
+    background: transparent;
+    color: #89b4fa;
+    border: none;
+    border-radius: 5px;
+    min-width: 16px;
+    padding: 0 2px;
+    transition: all 0.15s ease;
+}
+
+.widget-mpris > box > button:hover {
+    background: rgba(137, 180, 250, 0.15);
+}
+
+.widget-mpris > box > button:disabled {
+    color: #45475a;
+    background: transparent;
+}
+
+/* ==========================================
    Grupos de Notificaciones
    ========================================== */
 .notification-group {

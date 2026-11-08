@@ -401,5 +401,5 @@
   "menus.dashboard.shortcuts.right.shortcut1.command": "sleep 0.5 && hyprpicker -a",
   "menus.dashboard.shortcuts.right.shortcut3.icon": "\udb80\udd00",
   "menus.dashboard.shortcuts.right.shortcut3.tooltip": "Captura de Pantalla",
-  "menus.dashboard.shortcuts.right.shortcut3.command": "/home/developer/.local/bin/hyprcapture-ui --overlay-scope all --in-place-edit-toolbar 1"
+  "menus.dashboard.shortcuts.right.shortcut3.command": "hyprcapture-ui --overlay-scope all --in-place-edit-toolbar 1"
 }

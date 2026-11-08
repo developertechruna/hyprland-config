@@ -21,6 +21,7 @@
                                                 "memory",
                                                 "network",
                                                 "custom/vpn",
+                                                "custom/cirrus",
                                                 /*"custom/media",*/
                                                 "custom/language",
                                                 "pulseaudio",
@@ -122,6 +123,17 @@
         "tooltip": true
     },
 
+    "custom/cirrus": {
+        "format": "{}",
+        "exec": "bash ~/.config/waybar/cirrus.sh status",
+        "return-type": "json",
+        "interval": 2,
+        "signal": 9,
+        "on-click": "bash ~/.config/waybar/cirrus.sh toggle",
+        "on-click-right": "bash ~/.config/waybar/cirrus.sh open",
+        "tooltip": true
+    },
+
     "custom/language": {
         "exec": "python3 ~/.config/hypr/get_layout.py",
             "interval": 1,
@@ -179,7 +191,7 @@
         "format": "{}",
             "interval": 2,
                 "return-type": "json",
-                    "exec": "/home/developer/.config/waybar/media.sh",
+                    "exec": "bash ~/.config/waybar/media.sh",
                         "on-click": "playerctl play-pause",
                             "on-scroll-up": "playerctl next",
                                 "on-scroll-down": "playerctl previous",
