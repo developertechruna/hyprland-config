@@ -81,7 +81,7 @@ mount_cirrus() {
     fi
 
     # Solicitar elevación con Polkit si es requerido
-    if pkexec mount -t cifs "$CIRRUS_SERVER" "$CIRRUS_MOUNT" -o credentials="$CIRRUS_CREDS",vers=3.1.1,seal,rw,uid=$(id -u),gid=$(id -g),file_mode=0664,dir_mode=0775; then
+    if pkexec mount -t cifs "$CIRRUS_SERVER" "$CIRRUS_MOUNT" -o credentials="$CIRRUS_CREDS",vers=3.1.1,seal,rw,uid=$(id -u),gid=$(id -g),file_mode=0664,dir_mode=0775,noperm; then
         rm -f "$STATE_FILE"
         notify-send "Cirrus F3" "Conectado y montado exitosamente en F3/NFS" -i folder-remote
         pkill -RTMIN+9 waybar 2>/dev/null || true
