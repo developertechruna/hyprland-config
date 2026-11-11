@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Eclipse IDE
 Comment=Eclipse Integrated Development Environment
-Exec=eclipse %u
+Exec=sh -c 'exec "$HOME/.local/bin/eclipse" "$@"' sh %u
 Icon=eclipse
 Terminal=false
 StartupWMClass=Eclipse

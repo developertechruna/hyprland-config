@@ -15,11 +15,27 @@ fi
 ECLIPSE_HOME="${ECLIPSE_HOME:-$HOME/Apps/eclipse}"
 ECLIPSE_BIN="${ECLIPSE_BIN:-$ECLIPSE_HOME/eclipse}"
 
+# Búsqueda inteligente si no existe en la ruta exacta
+if [ ! -x "$ECLIPSE_BIN" ]; then
+    APPS_DIR="${APPS_DIR:-$HOME/Apps}"
+    if [ -d "$APPS_DIR" ]; then
+        AUTODETECT=$(find "$APPS_DIR" -maxdepth 2 -type f -name "eclipse" -perm -111 2>/dev/null | head -n 1)
+        if [ -n "$AUTODETECT" ] && [ -x "$AUTODETECT" ]; then
+            ECLIPSE_BIN="$AUTODETECT"
+            ECLIPSE_HOME="$(dirname "$ECLIPSE_BIN")"
+        fi
+    fi
+fi
+
 if [ ! -x "$ECLIPSE_BIN" ]; then
     if command -v eclipse >/dev/null 2>&1; then
         ECLIPSE_BIN="$(command -v eclipse)"
     else
-        echo "Error: No se encontró el binario de Eclipse en $ECLIPSE_BIN ni en PATH." >&2
+        MSG="No se encontró el ejecutable de Eclipse en:\n• $ECLIPSE_HOME/eclipse\n• ni en PATH.\n\nPor favor verifica tu variable ECLIPSE_HOME en ~/.config/desktop/desktop.conf"
+        echo -e "$MSG" >&2
+        if command -v notify-send >/dev/null 2>&1; then
+            notify-send -u critical -i dialog-error "Eclipse IDE" "$MSG"
+        fi
         exit 1
     fi
 fi
